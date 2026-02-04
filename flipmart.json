@@ -437,7 +437,110 @@
     "status": "publish",
     "image": "curtain.jpg",
     "datetime": "2026-02-03T12:25:00"
+  },
+  
+  {
+    "id": "KA201",
+    "product_name": "Mixer Grinder 750W",
+    "description": "High performance mixer grinder with 3 jars",
+    "category_id": "6",
+    "price": {
+      "mrp": 4999,
+      "buying_price": 3200,
+      "selling_price": 3899
+    },
+    "unit": "pcs",
+    "stock": {
+      "qty": 25
+    },
+    "brand": "Philips",
+    "tag": ["kitchen", "mixer", "appliance"],
+    "status": "publish",
+    "image": "mixer-grinder.jpg",
+    "datetime": "2026-02-03T11:00:00"
+  },
+  {
+    "id": "KA202",
+    "product_name": "Electric Kettle 1.5L",
+    "description": "Stainless steel electric kettle with auto cut-off",
+    "category_id": "6",
+    "price": {
+      "mrp": 1999,
+      "buying_price": 1100,
+      "selling_price": 1499
+    },
+    "unit": "pcs",
+    "stock": {
+      "qty": 40
+    },
+    "brand": "Prestige",
+    "tag": ["kitchen", "kettle"],
+    "status": "publish",
+    "image": "electric-kettle.jpg",
+    "datetime": "2026-02-03T11:10:00"
+  },
+  {
+    "id": "KA203",
+    "product_name": "Induction Cooktop",
+    "description": "Energy efficient induction cooktop with touch control",
+    "category_id": "6",
+    "price": {
+      "mrp": 4599,
+      "buying_price": 3000,
+      "selling_price": 3699
+    },
+    "unit": "pcs",
+    "stock": {
+      "qty": 30
+    },
+    "brand": "Bajaj",
+    "tag": ["kitchen", "induction"],
+    "status": "publish",
+    "image": "induction-cooktop.jpg",
+    "datetime": "2026-02-03T11:20:00"
+  },
+  {
+    "id": "KA204",
+    "product_name": "OTG Oven 19L",
+    "description": "Compact OTG oven for baking and grilling",
+    "category_id": "6",
+    "price": {
+      "mrp": 6999,
+      "buying_price": 4800,
+      "selling_price": 5599
+    },
+    "unit": "pcs",
+    "stock": {
+      "qty": 15
+    },
+    "brand": "Morphy Richards",
+    "tag": ["kitchen", "oven", "otg"],
+    "status": "publish",
+    "image": "otg-oven.jpg",
+    "datetime": "2026-02-03T11:30:00"
+  },
+  {
+    "id": "KA205",
+    "product_name": "Rice Cooker 1.8L",
+    "description": "Automatic rice cooker with keep warm function",
+    "category_id": "6",
+    "price": {
+      "mrp": 2999,
+      "buying_price": 1800,
+      "selling_price": 2299
+    },
+    "unit": "pcs",
+    "stock": {
+      "qty": 35
+    },
+    "brand": "Pigeon",
+    "tag": ["kitchen", "rice cooker"],
+    "status": "publish",
+    "image": "rice-cooker.jpg",
+    "datetime": "2026-02-03T11:40:00"
   }
+
+
 ],
   "profile": {
     "name": "typicode"

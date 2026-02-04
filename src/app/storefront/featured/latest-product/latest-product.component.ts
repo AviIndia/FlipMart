@@ -1,15 +1,39 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { HomeSidebarService } from '../featured-services/home-sidebar/home-sidebar.service';
+import { CommonModule } from '@angular/common';
 declare var $: any;
 @Component({
   selector: 'app-latest-product',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './latest-product.component.html',
   styleUrl: './latest-product.component.css'
 })
 export class LatestProductComponent implements AfterViewInit {
+
+latestProductData:any[]=[];
+
+  constructor(private homeSidebarService:HomeSidebarService) { }
+ngOnInit(): void {
+	this.latestProducts();
+}
+	latestProducts() {
+	this.homeSidebarService.latestproducts().subscribe((data:any[])=>{
+		this.latestProductData = data;
+		console.log('latest Product',this.latestProductData);
+		setTimeout(() => {
+			this.initCategoryCarousel();
+		}, 0);
+	})
+  }
+
   ngAfterViewInit(): void {
     // latest product carousel active js
+	
+  }
+
+
+  initCategoryCarousel() {
 	$('.latest-product-active').slick({
 		autoplay: false,
 		infinite: true,
@@ -40,5 +64,5 @@ export class LatestProductComponent implements AfterViewInit {
 		]
 	});
   }
-
+  
 }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
+import { HeaderService } from '../shared-services/header.service';
 
 declare var jQuery: any;
 declare var $: any;
@@ -14,10 +15,14 @@ declare var $: any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
-
+  categoryData:any[]=[];
   isHome = false;
-constructor(private route:Router,) { }
+constructor(private route:Router, private headerService: HeaderService) { }
 ngOnInit(): void {
+
+    this.getCategoriesData()
+
+
    // initial load
     this.isHome = this.route.url === '/home';
 
@@ -190,5 +195,18 @@ $('.category-menu')
     $(document).off('click.cartOutside');
     $('.mini-cart-btn').off('click.cart');
     $('.dropdown').off('show.bs.dropdown hide.bs.dropdown');
+  }
+
+
+
+  /* ---------------------- load data of category--------------- */
+
+  getCategoriesData(){
+    this.headerService.getCategories().subscribe((res:any)=>{
+      this.categoryData=res;
+      console.log('category data',this.categoryData);
+    }, (error: any) => {
+      console.log('Error while fetching category data', error);
+    });
   }
 }

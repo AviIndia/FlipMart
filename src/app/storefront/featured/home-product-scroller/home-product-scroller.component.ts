@@ -1,59 +1,70 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { HomeSidebarService } from '../featured-services/home-sidebar/home-sidebar.service';
+import { CommonModule } from '@angular/common';
+
 declare var $: any;
 @Component({
   selector: 'app-home-product-scroller',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home-product-scroller.component.html',
   styleUrl: './home-product-scroller.component.css'
 })
-export class HomeProductScrollerComponent implements AfterViewInit {
-  ngAfterViewInit(): void {
-    // category Carousel For 3 row
-	$('.category-carousel-active').each(
-  (_: number, el: HTMLElement) => {
-    const $carousel = $(el);
+export class HomeProductScrollerComponent {
 
-    const $arrowContainer = $carousel
-      .siblings('.section-title-2')
-      .find('.category-append');
+  twoProductCategory:any[]=[];
+  
+  constructor(private productService:HomeSidebarService) { }
 
-    const rowAttr = $carousel.attr('data-row');
-    const rows = rowAttr ? parseInt(rowAttr, 10) : 1;
+  ngOnInit(): void {  
+   this.randomProducts();
+ }
 
-    $carousel.slick({
-      infinite: true,
-      arrows: true,
-      dots: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      rows: rows,
-      prevArrow:
-        '<button class="slick-prev"><i class="fa fa-angle-left"></i></button>',
-      nextArrow:
-        '<button class="slick-next"><i class="fa fa-angle-right"></i></button>',
-      appendArrows: $arrowContainer,
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2,
-            rows: 3
-          }
-        },
-        {
-          breakpoint: 576,
-          settings: {
-            slidesToShow: 1,
-            rows: 3
-          }
-        }
-      ]
+
+
+
+randomProducts() {
+    this.productService.gettwocatProducts('6','4').subscribe(data => {
+      this.twoProductCategory = data;
+      console.log(this.twoProductCategory);
+
+      // ⏳ wait until *ngFor renders DOM
+      setTimeout(() => {
+        this.initCategoryCarousel();
+      });
     });
   }
-);
 
+  initCategoryCarousel() {
+   $('.featured-carousel-active2').each(function (this: HTMLElement) {
+      const $carousel = $(this);
 
+      if (!$carousel.length || $carousel.children().length === 0) return;
+      if ($carousel.hasClass('slick-initialized')) return;
+
+      const rows = $carousel.attr('data-row')
+        ? parseInt($carousel.attr('data-row')!, 10)
+        : 1;
+
+      $carousel.slick({
+        infinite: true,
+        arrows: true,
+        dots: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        rows: rows,
+        prevArrow:
+          '<button class="slick-prev"><i class="fa fa-angle-left"></i></button>',
+        nextArrow:
+          '<button class="slick-next"><i class="fa fa-angle-right"></i></button>',
+        responsive: [
+          { breakpoint: 1200, settings: { slidesToShow: 3 } },
+          { breakpoint: 768, settings: { slidesToShow: 2 } },
+          { breakpoint: 480, settings: { slidesToShow: 1, arrows: false } }
+        ]
+      });
+    });
   }
-
 }
+
+

@@ -10,11 +10,11 @@
                 <!-- featured category start -->
                 <div class="latest-product-active slick-padding slick-arrow-style">
                     <!-- product single item start -->
-                    <div class="product-item fix">
-                        <div class="product-thumb">
+                    <div class="product-item fix" *ngFor="let item of latestProductData">
+                        <div class="product-thumb" >
                             <a href="product-details.html">
-                                <img src="../../../../assets/storefront/img/product/product-img1.jpg" class="img-pri" alt="">
-                                <img src="../../../../assets/storefront/img/product/product-img2.jpg" class="img-sec" alt="">
+                                      <img src="../../../../assets/storefront/img/product/product-default.jpg" class="img-pri" alt="">
+                 
                             </a>
                             <div class="product-label">
                                 <span>hot</span>
@@ -24,14 +24,13 @@
                                         data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
                                 </a>
                                 <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
                                 <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
-                            <h4><a href="product-details.html">vertual product 01</a></h4>
+                            <h4><a href="product-details.html">{{item.product_name}}</a></h4>
                             <div class="pricebox">
-                                <span class="regular-price">₹70.00</span>
+                                <span class="regular-price">₹{{item.price.selling_price}}</span>
                                 <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>

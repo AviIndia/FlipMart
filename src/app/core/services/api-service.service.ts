@@ -1,43 +1,24 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ApiServiceService {
-httpOptions = {
-  headers:new HttpHeaders({
-    "Content_Type" : "application/json",
-    "Access-Control-Allow-Origin":"*"
-  })
-}
-  constructor(private http:HttpClient) { }
-  private formatErrors(error:any){
-    return throwError(error.error)
+@Injectable({ providedIn: 'root' })
+export class ApiService {
+
+  constructor(private http: HttpClient) {}
+
+  get<T>(url: string, params?: HttpParams) {
+    return this.http.get<T>(url, { params });
   }
 
-  get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.get(path, { params }).pipe(catchError(this.formatErrors));
+  post<T>(url: string, body: any) {
+    return this.http.post<T>(url, body);
   }
 
-  put(path: string, body: Object = {}): Observable<any> {
-    return this.http.put(
-      path, 
-      JSON.stringify(body), 
-      this.httpOptions
-    ).pipe(catchError(this.formatErrors));
-  }
-  post(path: string, body: Object = {}): Observable<any> {
-    return this.http.post(
-      path,
-      JSON.stringify(body),
-      this.httpOptions
-    ).pipe(catchError(this.formatErrors));
+  put<T>(url: string, body: any) {
+    return this.http.put<T>(url, body);
   }
 
-  delete(path: string): Observable<any> {
-    return this.http.delete(path).pipe(catchError(this.formatErrors));
+  delete<T>(url: string) {
+    return this.http.delete<T>(url);
   }
-
 }
