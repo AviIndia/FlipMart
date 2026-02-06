@@ -17,9 +17,20 @@ declare var $: any;
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   categoryData:any[]=[];
   isHome = false;
+ isLoggedIn = false;
+cust_name: string = 'My Account';
 constructor(private route:Router, private headerService: HeaderService) { }
 ngOnInit(): void {
 
+const role = localStorage.getItem('role');
+
+  if (role) {
+    this.cust_name = localStorage.getItem('cust_name') || 'My Account';
+    this.isLoggedIn = true;
+  } else {
+    this.cust_name = 'My Account';
+    this.isLoggedIn = false;
+  }
     this.getCategoriesData()
 
 
@@ -34,6 +45,16 @@ ngOnInit(): void {
         this.isHome = event.urlAfterRedirects === '/home';
       });
 }
+
+logout() {
+  localStorage.clear();
+  this.isLoggedIn = false;
+  this.cust_name = 'My Account';
+  this.route.navigate(['/login']);
+}
+
+
+
   ngAfterViewInit(): void {
 
     const $window = $(window);
