@@ -50,7 +50,7 @@ logout() {
   localStorage.clear();
   this.isLoggedIn = false;
   this.cust_name = 'My Account';
-  this.route.navigate(['/login']);
+  this.route.navigate(['/home']);
 }
 
 

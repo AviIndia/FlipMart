@@ -32,13 +32,13 @@
                                         <!-- 🔐 Logged in menu -->
                                         <div class="dropdown-menu" *ngIf="isLoggedIn">
                                             <a class="dropdown-item" routerLink="/my-account">My Account</a>
-                                            <a class="dropdown-item" (click)="logout()">Logout</a>
+                                            <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">Logout</a>
                                         </div>
 
                                         <!-- 🔓 Guest menu -->
                                         <div class="dropdown-menu" *ngIf="!isLoggedIn">
-                                            <a class="dropdown-item" routerLink="/login">Login</a>
-                                            <a class="dropdown-item" routerLink="/register">Register</a>
+                                            <a class="dropdown-item" routerLink="/login-register">Login</a>
+                                            <a class="dropdown-item" routerLink="/login-register">Register</a>
                                         </div>
                                     </div>
                                 </li>

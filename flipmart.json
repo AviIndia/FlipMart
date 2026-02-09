@@ -543,125 +543,315 @@
 
 ],
   "buyers": [
+  {
+    "customer_id": "CUST001",
+    "name": "Avijit Mondal",
+    "email": "avijit@gmail.com",
+    "mobile": "9876543201",
+    "password": "1234",
+    "role": "buyer",
+    "datetime": "2026-02-01T10:15:00",
+    "addresses": [
+      {
+        "address_id": "ADDR001",
+        "name": "Avijit Mondal",
+        "mobile": "9876543201",
+        "address": "MG Road",
+        "city": "Bengaluru",
+        "pincode": "560001",
+        "state": "Karnataka",
+        "type": "Home",
+        "isDefault": true
+      },
+      {
+        "address_id": "ADDR002",
+        "name": "Avijit Mondal",
+        "mobile": "9876543201",
+        "address": "Whitefield",
+        "city": "Bengaluru",
+        "pincode": "560066",
+        "state": "Karnataka",
+        "type": "Office",
+        "isDefault": false
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST002",
+    "name": "Anita Verma",
+    "email": "anita.verma@gmail.com",
+    "mobile": "9876543202",
+    "password": "anita@123",
+    "role": "buyer",
+    "datetime": "2026-02-01T11:00:00",
+    "addresses": [
+      {
+        "address_id": "ADDR003",
+        "name": "Anita Verma",
+        "mobile": "9876543202",
+        "address": "Lajpat Nagar",
+        "city": "Delhi",
+        "pincode": "110024",
+        "state": "Delhi",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST003",
+    "name": "Sourav Das",
+    "email": "sourav.das@gmail.com",
+    "mobile": "9876543203",
+    "password": "sourav@123",
+    "role": "buyer",
+    "datetime": "2026-02-02T09:45:00",
+    "addresses": [
+      {
+        "address_id": "ADDR004",
+        "name": "Sourav Das",
+        "mobile": "9876543203",
+        "address": "Garia",
+        "city": "Kolkata",
+        "pincode": "700084",
+        "state": "West Bengal",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST004",
+    "name": "Priya Singh",
+    "email": "priya.singh@gmail.com",
+    "mobile": "9876543204",
+    "password": "priya@123",
+    "role": "buyer",
+    "datetime": "2026-02-02T13:30:00",
+    "addresses": [
+      {
+        "address_id": "ADDR005",
+        "name": "Priya Singh",
+        "mobile": "9876543204",
+        "address": "Park Street",
+        "city": "Kolkata",
+        "pincode": "700016",
+        "state": "West Bengal",
+        "type": "Home",
+        "isDefault": true
+      },
+      {
+        "address_id": "ADDR006",
+        "name": "Priya Singh",
+        "mobile": "9876543204",
+        "address": "Salt Lake Sector V",
+        "city": "Kolkata",
+        "pincode": "700091",
+        "state": "West Bengal",
+        "type": "Office",
+        "isDefault": false
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST005",
+    "name": "Amit Patel",
+    "email": "amit.patel@gmail.com",
+    "mobile": "9876543205",
+    "password": "amit@123",
+    "role": "buyer",
+    "datetime": "2026-02-03T08:20:00",
+    "addresses": [
+      {
+        "address_id": "ADDR007",
+        "name": "Amit Patel",
+        "mobile": "9876543205",
+        "address": "CG Road",
+        "city": "Ahmedabad",
+        "pincode": "380009",
+        "state": "Gujarat",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST006",
+    "name": "Neha Joshi",
+    "email": "neha.joshi@gmail.com",
+    "mobile": "9876543206",
+    "password": "neha@123",
+    "role": "buyer",
+    "datetime": "2026-02-03T14:10:00",
+    "addresses": [
+      {
+        "address_id": "ADDR008",
+        "name": "Neha Joshi",
+        "mobile": "9876543206",
+        "address": "Baner",
+        "city": "Pune",
+        "pincode": "411045",
+        "state": "Maharashtra",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST007",
+    "name": "Vikram Mehta",
+    "email": "vikram.mehta@gmail.com",
+    "mobile": "9876543207",
+    "password": "vikram@123",
+    "role": "buyer",
+    "datetime": "2026-02-04T10:40:00",
+    "addresses": [
+      {
+        "address_id": "ADDR009",
+        "name": "Vikram Mehta",
+        "mobile": "9876543207",
+        "address": "Andheri West",
+        "city": "Mumbai",
+        "pincode": "400058",
+        "state": "Maharashtra",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST008",
+    "name": "Pooja Nair",
+    "email": "pooja.nair@gmail.com",
+    "mobile": "9876543208",
+    "password": "pooja@123",
+    "role": "buyer",
+    "datetime": "2026-02-04T15:25:00",
+    "addresses": [
+      {
+        "address_id": "ADDR010",
+        "name": "Pooja Nair",
+        "mobile": "9876543208",
+        "address": "Kakkanad",
+        "city": "Kochi",
+        "pincode": "682030",
+        "state": "Kerala",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST009",
+    "name": "Rohit Yadav",
+    "email": "rohit.yadav@gmail.com",
+    "mobile": "9876543209",
+    "password": "rohit@123",
+    "role": "buyer",
+    "datetime": "2026-02-05T09:10:00",
+    "addresses": [
+      {
+        "address_id": "ADDR011",
+        "name": "Rohit Yadav",
+        "mobile": "9876543209",
+        "address": "Sector 62",
+        "city": "Noida",
+        "pincode": "201309",
+        "state": "Uttar Pradesh",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  },
+
+  {
+    "customer_id": "CUST010",
+    "name": "Kunal Roy",
+    "email": "kunal.roy@gmail.com",
+    "mobile": "9876543210",
+    "password": "kunal@123",
+    "role": "buyer",
+    "datetime": "2026-02-05T16:50:00",
+    "addresses": [
+      {
+        "address_id": "ADDR012",
+        "name": "Kunal Roy",
+        "mobile": "9876543210",
+        "address": "New Town",
+        "city": "Kolkata",
+        "pincode": "700156",
+        "state": "West Bengal",
+        "type": "Home",
+        "isDefault": true
+      }
+    ]
+  }
+],
+  "orders": [
     {
+      "order_id": "ORD001",
+      "product_id": "PROD101",
       "customer_id": "CUST001",
-      "name": "Avijit Mondal",
-      "email": "avijit@gmail.com",
-      "mobile": "9874438716",
-      "password": "1234",
-      "address": "12 MG Road",
-      "city": "Mumbai",
-      "pincode": "400001",
-      "datetime": "2026-02-01T10:15:00",
-      "role":"buyer"
+      "qty": 2,
+      "price": 799,
+      "total_price": 1598,
+      "payment_type": "COD",
+      "address_id": "ADDR001",
+      "expected_delivery_date": "2026-02-10"
     },
     {
+      "order_id": "ORD002",
+      "product_id": "PROD205",
       "customer_id": "CUST002",
-      "name": "Amit Das",
-      "email": "amit.das@gmail.com",
-      "mobile": "9876543211",
-      "password": "amit@123",
-      "address": "45 Salt Lake",
-      "city": "Kolkata",
-      "pincode": "700091",
-      "datetime": "2026-02-01T11:20:00",
-      "role":"buyer"
+      "qty": 1,
+      "price": 2499,
+      "total_price": 2499,
+      "payment_type": "UPI",
+      "address_id": "ADDR004",
+      "expected_delivery_date": "2026-02-12"
     },
     {
+      "order_id": "ORD003",
+      "product_id": "PROD309",
+      "customer_id": "CUST001",
+      "qty": 3,
+      "price": 499,
+      "total_price": 1497,
+      "payment_type": "CARD",
+      "address_id": "ADDR002",
+      "expected_delivery_date": "2026-02-14"
+    },
+    {
+      "order_id": "ORD004",
+      "product_id": "PROD412",
       "customer_id": "CUST003",
-      "name": "Suman Roy",
-      "email": "suman.roy@gmail.com",
-      "mobile": "9876543212",
-      "password": "suman@123",
-      "address": "Sector 22",
-      "city": "Noida",
-      "pincode": "201301",
-      "datetime": "2026-02-01T12:05:00",
-      "role":"buyer"
+      "qty": 1,
+      "price": 8999,
+      "total_price": 8999,
+      "payment_type": "NET_BANKING",
+      "address_id": "ADDR006",
+      "expected_delivery_date": "2026-02-15"
     },
     {
+      "order_id": "ORD005",
+      "product_id": "PROD118",
       "customer_id": "CUST004",
-      "name": "Priya Singh",
-      "email": "priya.singh@gmail.com",
-      "mobile": "9876543213",
-      "password": "priya@123",
-      "address": "Park Street",
-      "city": "Kolkata",
-      "pincode": "700016",
-      "datetime": "2026-02-01T13:30:00",
-      "role":"buyer"
-    },
-    {
-      "customer_id": "CUST005",
-      "name": "Neha Verma",
-      "email": "neha.verma@gmail.com",
-      "mobile": "9876543214",
-      "password": "neha@123",
-      "address": "Indira Nagar",
-      "city": "Lucknow",
-      "pincode": "226016",
-      "datetime": "2026-02-01T14:10:00",
-      "role":"buyer"
-    },
-    {
-      "customer_id": "CUST006",
-      "name": "Arjun Patel",
-      "email": "arjun.patel@gmail.com",
-      "mobile": "9876543215",
-      "password": "arjun@123",
-      "address": "CG Road",
-      "city": "Ahmedabad",
-      "pincode": "380009",
-      "datetime": "2026-02-01T15:00:00",
-      "role":"buyer"
-    },
-    {
-      "customer_id": "CUST007",
-      "name": "Rohit Mehta",
-      "email": "rohit.mehta@gmail.com",
-      "mobile": "9876543216",
-      "password": "rohit@123",
-      "address": "Banjara Hills",
-      "city": "Hyderabad",
-      "pincode": "500034",
-      "datetime": "2026-02-01T16:25:00",
-      "role":"buyer"
-    },
-    {
-      "customer_id": "CUST008",
-      "name": "Sneha Iyer",
-      "email": "sneha.iyer@gmail.com",
-      "mobile": "9876543217",
-      "password": "sneha@123",
-      "address": "Adyar",
-      "city": "Chennai",
-      "pincode": "600020",
-      "datetime": "2026-02-01T17:40:00",
-      "role":"buyer"
-    },
-    {
-      "customer_id": "CUST009",
-      "name": "Karan Malhotra",
-      "email": "karan.malhotra@gmail.com",
-      "mobile": "9876543218",
-      "password": "karan@123",
-      "address": "DLF Phase 3",
-      "city": "Gurgaon",
-      "pincode": "122010",
-      "datetime": "2026-02-01T18:10:00",
-      "role":"buyer"
-    },
-    {
-      "customer_id": "CUST010",
-      "name": "Pooja Nair",
-      "email": "pooja.nair@gmail.com",
-      "mobile": "9876543219",
-      "password": "pooja@123",
-      "address": "Vyttila",
-      "city": "Kochi",
-      "pincode": "682019",
-      "datetime": "2026-02-01T19:00:00",
-      "role":"buyer"
+      "qty": 4,
+      "price": 299,
+      "total_price": 1196,
+      "payment_type": "COD",
+      "address_id": "ADDR008",
+      "expected_delivery_date": "2026-02-18"
     }
   ]
 }
+
+

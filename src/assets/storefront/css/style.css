@@ -5532,8 +5532,8 @@ only screen and (max-width: 575px) {
 .order-summary-table table tr td,
 .order-summary-table table tr th {
     font-weight: 500;
-    vertical-align: middle;
-    padding: 15px 10px;
+    text-align: left;
+    padding: 10px 10px;
     border-width: 1px;
 }
 
@@ -5845,7 +5845,7 @@ only screen and (max-width: 767px) {
 .cart-table .table tr .pro-quantity,
 .cart-table .table tr .pro-subtotal,
 .cart-table .table tr .pro-remove {
-    width: 140px;
+    width: 50px;
 }
 
 .cart-table .table tr .pro-qty {

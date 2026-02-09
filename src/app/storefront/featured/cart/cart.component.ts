@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { FooterComponent } from "../../shared/footer/footer.component";
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [],
+  imports: [FooterComponent, HeaderComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })

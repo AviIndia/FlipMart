@@ -9,16 +9,18 @@ import { authguardGuard } from './authguard/authguard.guard';
 import { MyAccountComponent } from './storefront/featured/my-account/my-account.component';
 import { CheckoutComponent } from './storefront/featured/checkout/checkout.component';
 import { guestGuard } from './authguard/guest.guard';
+import { checkoutGuard } from './authguard/checkout.gurad';
 
 export const routes: Routes = [
     
     {path: '', redirectTo: 'home', pathMatch: 'full'},
+    
     {path:'home', component: HomeComponent},
     {path:'about-us', component: AboutUsComponent},
     {path:'shop', component: ShopComponent},
     {path:'login-register', component:LoginComponent, canActivate:[guestGuard]},
-    {path:'cart', component:CartComponent, canActivate:[authguardGuard]},
+    {path:'cart', component:CartComponent},
     {path:'my-account', component:MyAccountComponent, canActivate:[authguardGuard]},
-    {path:'checkout', component:CheckoutComponent, canActivate:[authguardGuard]},
+    {path:'checkout', component:CheckoutComponent, canActivate:[checkoutGuard]},
     {path:'contact-us', component:ContactUsComponent},
 ];
