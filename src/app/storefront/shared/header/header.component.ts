@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 import { HeaderService } from '../shared-services/header.service';
+import { CartServiceService } from '../../featured/services/cart-service.service';
 
 declare var jQuery: any;
 declare var $: any;
@@ -19,7 +20,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   isHome = false;
  isLoggedIn = false;
 cust_name: string = 'My Account';
-constructor(private route:Router, private headerService: HeaderService) { }
+constructor(private route:Router, private headerService: HeaderService,public cartService:CartServiceService) { }
 ngOnInit(): void {
 
 const role = localStorage.getItem('role');

@@ -17,6 +17,9 @@ export class ApiService {
   put<T>(url: string, body: any) {
     return this.http.put<T>(url, body);
   }
+patch<T>(url: string, body: any) {
+    return this.http.patch<T>(url, body);
+  }
 
   delete<T>(url: string) {
     return this.http.delete<T>(url);

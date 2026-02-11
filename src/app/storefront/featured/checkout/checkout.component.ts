@@ -28,7 +28,7 @@ export class CheckoutComponent {
     const customer_id = localStorage.getItem('cust_id');
     this.api.singleBuyer(customer_id).subscribe({
       next:(res:any[])=>{
-        this.buyerAddress = res;
+        this.buyerAddress = res[0].addresses;
         console.log(this.buyerAddress);
       },
       error:(err)=>{

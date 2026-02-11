@@ -1,43 +1,86 @@
 {
-  
   "category": [
-    { "id": "1", "category_name": "Men Fashion"},
-    { "id": "2", "category_name": "Women Fashion"},
-    { "id": "3", "category_name": "Smartphones"},
-    { "id": "4", "category_name": "Smart Watches"},
-    { "id": "5", "category_name": "Home & Living"},
-    { "id": "6", "category_name": "Kitchen Appliances"},
-    { "id": "7", "category_name": "Beauty Products"},
-    { "id": "8", "category_name": "Camera"},
-    { "id": "9", "category_name": "Grocery"}
-    
+    {
+      "id": "1",
+      "category_name": "Men Fashion"
+    },
+    {
+      "id": "2",
+      "category_name": "Women Fashion"
+    },
+    {
+      "id": "3",
+      "category_name": "Smartphones"
+    },
+    {
+      "id": "4",
+      "category_name": "Smart Watches"
+    },
+    {
+      "id": "5",
+      "category_name": "Home & Living"
+    },
+    {
+      "id": "6",
+      "category_name": "Kitchen Appliances"
+    },
+    {
+      "id": "7",
+      "category_name": "Beauty Products"
+    },
+    {
+      "id": "8",
+      "category_name": "Camera"
+    },
+    {
+      "id": "9",
+      "category_name": "Grocery"
+    }
   ],
   "products": [
-    
     {
-      "id": "MF101",
+      "id": "PROD101",
       "product_name": "Men Slim Fit Cotton Shirt",
       "description": "Comfortable slim fit cotton shirt for daily wear",
       "category_id": "1",
-      "price": { "mrp": 1999, "buying_price": 900, "selling_price": 1299 },
+      "price": {
+        "mrp": 1999,
+        "buying_price": 900,
+        "selling_price": 1299
+      },
       "unit": "pcs",
-      "stock": { "qty": 50 },
+      "stock": {
+        "qty": 50
+      },
       "brand": "Allen Solly",
-      "tag": ["men", "shirt", "fashion"],
+      "tag": [
+        "men",
+        "shirt",
+        "fashion"
+      ],
       "status": "publish",
       "image": "men-shirt-1.jpg",
       "datetime": "2026-02-03T10:00:00"
     },
     {
-      "id": "MF102",
+      "id": "PROD205",
       "product_name": "Men Regular Fit Jeans",
       "description": "Blue denim jeans with regular fit",
       "category_id": "1",
-      "price": { "mrp": 2499, "buying_price": 1200, "selling_price": 1799 },
+      "price": {
+        "mrp": 2499,
+        "buying_price": 1200,
+        "selling_price": 1799
+      },
       "unit": "pcs",
-      "stock": { "qty": 40 },
+      "stock": {
+        "qty": 40
+      },
       "brand": "Levis",
-      "tag": ["men", "jeans"],
+      "tag": [
+        "men",
+        "jeans"
+      ],
       "status": "publish",
       "image": "men-jeans-1.jpg",
       "datetime": "2026-02-03T10:05:00"
@@ -47,11 +90,20 @@
       "product_name": "Men Casual T-Shirt",
       "description": "Round neck cotton t-shirt",
       "category_id": "1",
-      "price": { "mrp": 999, "buying_price": 400, "selling_price": 699 },
+      "price": {
+        "mrp": 999,
+        "buying_price": 400,
+        "selling_price": 699
+      },
       "unit": "pcs",
-      "stock": { "qty": 100 },
+      "stock": {
+        "qty": 100
+      },
       "brand": "Puma",
-      "tag": ["men", "tshirt"],
+      "tag": [
+        "men",
+        "tshirt"
+      ],
       "status": "publish",
       "image": "men-tshirt-1.jpg",
       "datetime": "2026-02-03T10:10:00"
@@ -61,11 +113,20 @@
       "product_name": "Men Formal Trousers",
       "description": "Formal trousers for office wear",
       "category_id": "1",
-      "price": { "mrp": 2299, "buying_price": 1100, "selling_price": 1699 },
+      "price": {
+        "mrp": 2299,
+        "buying_price": 1100,
+        "selling_price": 1699
+      },
       "unit": "pcs",
-      "stock": { "qty": 35 },
+      "stock": {
+        "qty": 35
+      },
       "brand": "Van Heusen",
-      "tag": ["men", "formal"],
+      "tag": [
+        "men",
+        "formal"
+      ],
       "status": "publish",
       "image": "men-trouser-1.jpg",
       "datetime": "2026-02-03T10:15:00"
@@ -75,11 +136,20 @@
       "product_name": "Men Hooded Sweatshirt",
       "description": "Warm fleece hooded sweatshirt",
       "category_id": "1",
-      "price": { "mrp": 2999, "buying_price": 1500, "selling_price": 2199 },
+      "price": {
+        "mrp": 2999,
+        "buying_price": 1500,
+        "selling_price": 2199
+      },
       "unit": "pcs",
-      "stock": { "qty": 25 },
+      "stock": {
+        "qty": 25
+      },
       "brand": "HRX",
-      "tag": ["men", "winter"],
+      "tag": [
+        "men",
+        "winter"
+      ],
       "status": "publish",
       "image": "men-hoodie-1.jpg",
       "datetime": "2026-02-03T10:20:00"
@@ -89,27 +159,43 @@
       "product_name": "Men Sports Shorts",
       "description": "Lightweight shorts for workout",
       "category_id": "1",
-      "price": { "mrp": 1199, "buying_price": 500, "selling_price": 799 },
+      "price": {
+        "mrp": 1199,
+        "buying_price": 500,
+        "selling_price": 799
+      },
       "unit": "pcs",
-      "stock": { "qty": 60 },
+      "stock": {
+        "qty": 60
+      },
       "brand": "Nike",
-      "tag": ["men", "sports"],
+      "tag": [
+        "men",
+        "sports"
+      ],
       "status": "publish",
       "image": "men-shorts-1.jpg",
       "datetime": "2026-02-03T10:25:00"
     },
-
-   
     {
       "id": "WF201",
       "product_name": "Women Floral Kurti",
       "description": "Printed cotton kurti",
       "category_id": "2",
-      "price": { "mrp": 1899, "buying_price": 800, "selling_price": 1299 },
+      "price": {
+        "mrp": 1899,
+        "buying_price": 800,
+        "selling_price": 1299
+      },
       "unit": "pcs",
-      "stock": { "qty": 45 },
+      "stock": {
+        "qty": 45
+      },
       "brand": "Biba",
-      "tag": ["women", "ethnic"],
+      "tag": [
+        "women",
+        "ethnic"
+      ],
       "status": "publish",
       "image": "women-kurti-1.jpg",
       "datetime": "2026-02-03T10:30:00"
@@ -119,11 +205,20 @@
       "product_name": "Women Skinny Jeans",
       "description": "Stretchable skinny jeans",
       "category_id": "2",
-      "price": { "mrp": 2399, "buying_price": 1100, "selling_price": 1699 },
+      "price": {
+        "mrp": 2399,
+        "buying_price": 1100,
+        "selling_price": 1699
+      },
       "unit": "pcs",
-      "stock": { "qty": 30 },
+      "stock": {
+        "qty": 30
+      },
       "brand": "Only",
-      "tag": ["women", "jeans"],
+      "tag": [
+        "women",
+        "jeans"
+      ],
       "status": "publish",
       "image": "women-jeans-1.jpg",
       "datetime": "2026-02-03T10:35:00"
@@ -133,11 +228,20 @@
       "product_name": "Women Casual Top",
       "description": "Comfortable casual wear top",
       "category_id": "2",
-      "price": { "mrp": 1499, "buying_price": 600, "selling_price": 999 },
+      "price": {
+        "mrp": 1499,
+        "buying_price": 600,
+        "selling_price": 999
+      },
       "unit": "pcs",
-      "stock": { "qty": 55 },
+      "stock": {
+        "qty": 55
+      },
       "brand": "Zara",
-      "tag": ["women", "top"],
+      "tag": [
+        "women",
+        "top"
+      ],
       "status": "publish",
       "image": "women-top-1.jpg",
       "datetime": "2026-02-03T10:40:00"
@@ -147,11 +251,20 @@
       "product_name": "Women Maxi Dress",
       "description": "Stylish full-length dress",
       "category_id": "2",
-      "price": { "mrp": 3499, "buying_price": 1800, "selling_price": 2599 },
+      "price": {
+        "mrp": 3499,
+        "buying_price": 1800,
+        "selling_price": 2599
+      },
       "unit": "pcs",
-      "stock": { "qty": 20 },
+      "stock": {
+        "qty": 20
+      },
       "brand": "H&M",
-      "tag": ["women", "dress"],
+      "tag": [
+        "women",
+        "dress"
+      ],
       "status": "publish",
       "image": "women-dress-1.jpg",
       "datetime": "2026-02-03T10:45:00"
@@ -161,11 +274,20 @@
       "product_name": "Women Winter Jacket",
       "description": "Warm padded jacket",
       "category_id": "2",
-      "price": { "mrp": 4999, "buying_price": 2500, "selling_price": 3899 },
+      "price": {
+        "mrp": 4999,
+        "buying_price": 2500,
+        "selling_price": 3899
+      },
       "unit": "pcs",
-      "stock": { "qty": 15 },
+      "stock": {
+        "qty": 15
+      },
       "brand": "Roadster",
-      "tag": ["women", "winter"],
+      "tag": [
+        "women",
+        "winter"
+      ],
       "status": "publish",
       "image": "women-jacket-1.jpg",
       "datetime": "2026-02-03T10:50:00"
@@ -175,626 +297,799 @@
       "product_name": "Women Palazzo Pants",
       "description": "Comfortable palazzo pants",
       "category_id": "2",
-      "price": { "mrp": 1999, "buying_price": 900, "selling_price": 1399 },
+      "price": {
+        "mrp": 1999,
+        "buying_price": 900,
+        "selling_price": 1399
+      },
       "unit": "pcs",
-      "stock": { "qty": 35 },
+      "stock": {
+        "qty": 35
+      },
       "brand": "W",
-      "tag": ["women", "palazzo"],
+      "tag": [
+        "women",
+        "palazzo"
+      ],
       "status": "publish",
       "image": "women-palazzo-1.jpg",
       "datetime": "2026-02-03T10:55:00"
     },
-    
-  {
-    "id": "SP301",
-    "product_name": "iPhone 14",
-    "description": "Apple iPhone 14 with A15 Bionic chip",
-    "category_id": "3",
-    "price": { "mrp": 79999, "buying_price": 72000, "selling_price": 75999 },
-    "unit": "pcs",
-    "stock": { "qty": 20 },
-    "brand": "Apple",
-    "tag": ["smartphone", "ios", "apple"],
-    "status": "publish",
-    "image": "iphone-14.jpg",
-    "datetime": "2026-02-03T11:00:00"
-  },
-  {
-    "id": "SP302",
-    "product_name": "Samsung Galaxy S23",
-    "description": "Flagship Android smartphone",
-    "category_id": "3",
-    "price": { "mrp": 74999, "buying_price": 68000, "selling_price": 70999 },
-    "unit": "pcs",
-    "stock": { "qty": 25 },
-    "brand": "Samsung",
-    "tag": ["android", "samsung"],
-    "status": "publish",
-    "image": "galaxy-s23.jpg",
-    "datetime": "2026-02-03T11:05:00"
-  },
-  {
-    "id": "SP303",
-    "product_name": "OnePlus 11",
-    "description": "Fast performance with Snapdragon processor",
-    "category_id": "3",
-    "price": { "mrp": 61999, "buying_price": 55000, "selling_price": 58999 },
-    "unit": "pcs",
-    "stock": { "qty": 30 },
-    "brand": "OnePlus",
-    "tag": ["android", "oneplus"],
-    "status": "publish",
-    "image": "oneplus-11.jpg",
-    "datetime": "2026-02-03T11:10:00"
-  },
-  {
-    "id": "SP304",
-    "product_name": "Redmi Note 13 Pro",
-    "description": "Value for money smartphone",
-    "category_id": "3",
-    "price": { "mrp": 25999, "buying_price": 22000, "selling_price": 23999 },
-    "unit": "pcs",
-    "stock": { "qty": 60 },
-    "brand": "Xiaomi",
-    "tag": ["budget", "android"],
-    "status": "publish",
-    "image": "redmi-note-13.jpg",
-    "datetime": "2026-02-03T11:15:00"
-  },
-  {
-    "id": "SP305",
-    "product_name": "Realme GT Neo",
-    "description": "Gaming performance smartphone",
-    "category_id": "3",
-    "price": { "mrp": 32999, "buying_price": 29000, "selling_price": 30999 },
-    "unit": "pcs",
-    "stock": { "qty": 40 },
-    "brand": "Realme",
-    "tag": ["gaming", "android"],
-    "status": "publish",
-    "image": "realme-gt.jpg",
-    "datetime": "2026-02-03T11:20:00"
-  },
-  {
-    "id": "SP306",
-    "product_name": "Google Pixel 8",
-    "description": "Best camera smartphone",
-    "category_id": "3",
-    "price": { "mrp": 70999, "buying_price": 64000, "selling_price": 67999 },
-    "unit": "pcs",
-    "stock": { "qty": 18 },
-    "brand": "Google",
-    "tag": ["pixel", "camera"],
-    "status": "publish",
-    "image": "pixel-8.jpg",
-    "datetime": "2026-02-03T11:25:00"
-  },
-  
-  {
-    "id": "SW401",
-    "product_name": "Apple Watch Series 9",
-    "description": "Advanced fitness & health tracking",
-    "category_id": "4",
-    "price": { "mrp": 45999, "buying_price": 41000, "selling_price": 43999 },
-    "unit": "pcs",
-    "stock": { "qty": 15 },
-    "brand": "Apple",
-    "tag": ["watch", "ios"],
-    "status": "publish",
-    "image": "apple-watch-9.jpg",
-    "datetime": "2026-02-03T11:30:00"
-  },
-  {
-    "id": "SW402",
-    "product_name": "Samsung Galaxy Watch 6",
-    "description": "AMOLED smartwatch with health tracking",
-    "category_id": "4",
-    "price": { "mrp": 32999, "buying_price": 29000, "selling_price": 30999 },
-    "unit": "pcs",
-    "stock": { "qty": 20 },
-    "brand": "Samsung",
-    "tag": ["watch", "android"],
-    "status": "publish",
-    "image": "galaxy-watch-6.jpg",
-    "datetime": "2026-02-03T11:35:00"
-  },
-  {
-    "id": "SW403",
-    "product_name": "Noise ColorFit Pro",
-    "description": "Affordable smartwatch with fitness features",
-    "category_id": "4",
-    "price": { "mrp": 4999, "buying_price": 3500, "selling_price": 3999 },
-    "unit": "pcs",
-    "stock": { "qty": 70 },
-    "brand": "Noise",
-    "tag": ["budget", "fitness"],
-    "status": "publish",
-    "image": "noise-watch.jpg",
-    "datetime": "2026-02-03T11:40:00"
-  },
-  {
-    "id": "SW404",
-    "product_name": "Boat Xtend Smartwatch",
-    "description": "Alexa built-in smartwatch",
-    "category_id": "4",
-    "price": { "mrp": 7999, "buying_price": 6000, "selling_price": 6999 },
-    "unit": "pcs",
-    "stock": { "qty": 50 },
-    "brand": "Boat",
-    "tag": ["smartwatch", "alexa"],
-    "status": "publish",
-    "image": "boat-xtend.jpg",
-    "datetime": "2026-02-03T11:45:00"
-  },
-  {
-    "id": "SW405",
-    "product_name": "Fire-Boltt Ninja",
-    "description": "Touchscreen smartwatch",
-    "category_id": "4",
-    "price": { "mrp": 3999, "buying_price": 2800, "selling_price": 3499 },
-    "unit": "pcs",
-    "stock": { "qty": 65 },
-    "brand": "Fire-Boltt",
-    "tag": ["watch", "fitness"],
-    "status": "publish",
-    "image": "fireboltt-ninja.jpg",
-    "datetime": "2026-02-03T11:50:00"
-  },
-  {
-    "id": "SW406",
-    "product_name": "Amazfit GTS 4",
-    "description": "Premium fitness smartwatch",
-    "category_id": "4",
-    "price": { "mrp": 16999, "buying_price": 14500, "selling_price": 15999 },
-    "unit": "pcs",
-    "stock": { "qty": 22 },
-    "brand": "Amazfit",
-    "tag": ["fitness", "premium"],
-    "status": "publish",
-    "image": "amazfit-gts4.jpg",
-    "datetime": "2026-02-03T11:55:00"
-  },
-  {
-    "id": "HL501",
-    "product_name": "Wooden Coffee Table",
-    "description": "Modern wooden coffee table",
-    "category_id": "5",
-    "price": { "mrp": 12999, "buying_price": 9000, "selling_price": 10999 },
-    "unit": "pcs",
-    "stock": { "qty": 10 },
-    "brand": "HomeTown",
-    "tag": ["furniture", "living"],
-    "status": "publish",
-    "image": "coffee-table.jpg",
-    "datetime": "2026-02-03T12:00:00"
-  },
-  {
-    "id": "HL502",
-    "product_name": "Sofa Cushion Set",
-    "description": "Soft cushion set of 5",
-    "category_id": "5",
-    "price": { "mrp": 2999, "buying_price": 1800, "selling_price": 2499 },
-    "unit": "set",
-    "stock": { "qty": 40 },
-    "brand": "IKEA",
-    "tag": ["decor", "cushion"],
-    "status": "publish",
-    "image": "sofa-cushion.jpg",
-    "datetime": "2026-02-03T12:05:00"
-  },
-  {
-    "id": "HL503",
-    "product_name": "Floor Lamp",
-    "description": "Decorative LED floor lamp",
-    "category_id": "5",
-    "price": { "mrp": 4999, "buying_price": 3500, "selling_price": 4299 },
-    "unit": "pcs",
-    "stock": { "qty": 25 },
-    "brand": "Philips",
-    "tag": ["lighting", "decor"],
-    "status": "publish",
-    "image": "floor-lamp.jpg",
-    "datetime": "2026-02-03T12:10:00"
-  },
-  {
-    "id": "HL504",
-    "product_name": "Wall Clock",
-    "description": "Minimal wall clock",
-    "category_id": "5",
-    "price": { "mrp": 1999, "buying_price": 1200, "selling_price": 1599 },
-    "unit": "pcs",
-    "stock": { "qty": 35 },
-    "brand": "Ajanta",
-    "tag": ["clock", "decor"],
-    "status": "publish",
-    "image": "wall-clock.jpg",
-    "datetime": "2026-02-03T12:15:00"
-  },
-  {
-    "id": "HL505",
-    "product_name": "Bedsheet Set",
-    "description": "Cotton double bedsheet set",
-    "category_id": "5",
-    "price": { "mrp": 3499, "buying_price": 2200, "selling_price": 2999 },
-    "unit": "set",
-    "stock": { "qty": 45 },
-    "brand": "Bombay Dyeing",
-    "tag": ["bedsheet", "home"],
-    "status": "publish",
-    "image": "bedsheet.jpg",
-    "datetime": "2026-02-03T12:20:00"
-  },
-  {
-    "id": "HL506",
-    "product_name": "Curtain Set",
-    "description": "Premium blackout curtains",
-    "category_id": "5",
-    "price": { "mrp": 5999, "buying_price": 4200, "selling_price": 5199 },
-    "unit": "set",
-    "stock": { "qty": 18 },
-    "brand": "Story@Home",
-    "tag": ["curtain", "decor"],
-    "status": "publish",
-    "image": "curtain.jpg",
-    "datetime": "2026-02-03T12:25:00"
-  },
-  
-  {
-    "id": "KA201",
-    "product_name": "Mixer Grinder 750W",
-    "description": "High performance mixer grinder with 3 jars",
-    "category_id": "6",
-    "price": {
-      "mrp": 4999,
-      "buying_price": 3200,
-      "selling_price": 3899
+    {
+      "id": "SP301",
+      "product_name": "iPhone 14",
+      "description": "Apple iPhone 14 with A15 Bionic chip",
+      "category_id": "3",
+      "price": {
+        "mrp": 79999,
+        "buying_price": 72000,
+        "selling_price": 75999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 20
+      },
+      "brand": "Apple",
+      "tag": [
+        "smartphone",
+        "ios",
+        "apple"
+      ],
+      "status": "publish",
+      "image": "iphone-14.jpg",
+      "datetime": "2026-02-03T11:00:00"
     },
-    "unit": "pcs",
-    "stock": {
-      "qty": 25
+    {
+      "id": "SP302",
+      "product_name": "Samsung Galaxy S23",
+      "description": "Flagship Android smartphone",
+      "category_id": "3",
+      "price": {
+        "mrp": 74999,
+        "buying_price": 68000,
+        "selling_price": 70999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 25
+      },
+      "brand": "Samsung",
+      "tag": [
+        "android",
+        "samsung"
+      ],
+      "status": "publish",
+      "image": "galaxy-s23.jpg",
+      "datetime": "2026-02-03T11:05:00"
     },
-    "brand": "Philips",
-    "tag": ["kitchen", "mixer", "appliance"],
-    "status": "publish",
-    "image": "mixer-grinder.jpg",
-    "datetime": "2026-02-03T11:00:00"
-  },
-  {
-    "id": "KA202",
-    "product_name": "Electric Kettle 1.5L",
-    "description": "Stainless steel electric kettle with auto cut-off",
-    "category_id": "6",
-    "price": {
-      "mrp": 1999,
-      "buying_price": 1100,
-      "selling_price": 1499
+    {
+      "id": "SP303",
+      "product_name": "OnePlus 11",
+      "description": "Fast performance with Snapdragon processor",
+      "category_id": "3",
+      "price": {
+        "mrp": 61999,
+        "buying_price": 55000,
+        "selling_price": 58999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 30
+      },
+      "brand": "OnePlus",
+      "tag": [
+        "android",
+        "oneplus"
+      ],
+      "status": "publish",
+      "image": "oneplus-11.jpg",
+      "datetime": "2026-02-03T11:10:00"
     },
-    "unit": "pcs",
-    "stock": {
-      "qty": 40
+    {
+      "id": "SP304",
+      "product_name": "Redmi Note 13 Pro",
+      "description": "Value for money smartphone",
+      "category_id": "3",
+      "price": {
+        "mrp": 25999,
+        "buying_price": 22000,
+        "selling_price": 23999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 60
+      },
+      "brand": "Xiaomi",
+      "tag": [
+        "budget",
+        "android"
+      ],
+      "status": "publish",
+      "image": "redmi-note-13.jpg",
+      "datetime": "2026-02-03T11:15:00"
     },
-    "brand": "Prestige",
-    "tag": ["kitchen", "kettle"],
-    "status": "publish",
-    "image": "electric-kettle.jpg",
-    "datetime": "2026-02-03T11:10:00"
-  },
-  {
-    "id": "KA203",
-    "product_name": "Induction Cooktop",
-    "description": "Energy efficient induction cooktop with touch control",
-    "category_id": "6",
-    "price": {
-      "mrp": 4599,
-      "buying_price": 3000,
-      "selling_price": 3699
+    {
+      "id": "SP305",
+      "product_name": "Realme GT Neo",
+      "description": "Gaming performance smartphone",
+      "category_id": "3",
+      "price": {
+        "mrp": 32999,
+        "buying_price": 29000,
+        "selling_price": 30999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 40
+      },
+      "brand": "Realme",
+      "tag": [
+        "gaming",
+        "android"
+      ],
+      "status": "publish",
+      "image": "realme-gt.jpg",
+      "datetime": "2026-02-03T11:20:00"
     },
-    "unit": "pcs",
-    "stock": {
-      "qty": 30
+    {
+      "id": "SP306",
+      "product_name": "Google Pixel 8",
+      "description": "Best camera smartphone",
+      "category_id": "3",
+      "price": {
+        "mrp": 70999,
+        "buying_price": 64000,
+        "selling_price": 67999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 18
+      },
+      "brand": "Google",
+      "tag": [
+        "pixel",
+        "camera"
+      ],
+      "status": "publish",
+      "image": "pixel-8.jpg",
+      "datetime": "2026-02-03T11:25:00"
     },
-    "brand": "Bajaj",
-    "tag": ["kitchen", "induction"],
-    "status": "publish",
-    "image": "induction-cooktop.jpg",
-    "datetime": "2026-02-03T11:20:00"
-  },
-  {
-    "id": "KA204",
-    "product_name": "OTG Oven 19L",
-    "description": "Compact OTG oven for baking and grilling",
-    "category_id": "6",
-    "price": {
-      "mrp": 6999,
-      "buying_price": 4800,
-      "selling_price": 5599
+    {
+      "id": "SW401",
+      "product_name": "Apple Watch Series 9",
+      "description": "Advanced fitness & health tracking",
+      "category_id": "4",
+      "price": {
+        "mrp": 45999,
+        "buying_price": 41000,
+        "selling_price": 43999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 15
+      },
+      "brand": "Apple",
+      "tag": [
+        "watch",
+        "ios"
+      ],
+      "status": "publish",
+      "image": "apple-watch-9.jpg",
+      "datetime": "2026-02-03T11:30:00"
     },
-    "unit": "pcs",
-    "stock": {
-      "qty": 15
+    {
+      "id": "SW402",
+      "product_name": "Samsung Galaxy Watch 6",
+      "description": "AMOLED smartwatch with health tracking",
+      "category_id": "4",
+      "price": {
+        "mrp": 32999,
+        "buying_price": 29000,
+        "selling_price": 30999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 20
+      },
+      "brand": "Samsung",
+      "tag": [
+        "watch",
+        "android"
+      ],
+      "status": "publish",
+      "image": "galaxy-watch-6.jpg",
+      "datetime": "2026-02-03T11:35:00"
     },
-    "brand": "Morphy Richards",
-    "tag": ["kitchen", "oven", "otg"],
-    "status": "publish",
-    "image": "otg-oven.jpg",
-    "datetime": "2026-02-03T11:30:00"
-  },
-  {
-    "id": "KA205",
-    "product_name": "Rice Cooker 1.8L",
-    "description": "Automatic rice cooker with keep warm function",
-    "category_id": "6",
-    "price": {
-      "mrp": 2999,
-      "buying_price": 1800,
-      "selling_price": 2299
+    {
+      "id": "SW403",
+      "product_name": "Noise ColorFit Pro",
+      "description": "Affordable smartwatch with fitness features",
+      "category_id": "4",
+      "price": {
+        "mrp": 4999,
+        "buying_price": 3500,
+        "selling_price": 3999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 70
+      },
+      "brand": "Noise",
+      "tag": [
+        "budget",
+        "fitness"
+      ],
+      "status": "publish",
+      "image": "noise-watch.jpg",
+      "datetime": "2026-02-03T11:40:00"
     },
-    "unit": "pcs",
-    "stock": {
-      "qty": 35
+    {
+      "id": "SW404",
+      "product_name": "Boat Xtend Smartwatch",
+      "description": "Alexa built-in smartwatch",
+      "category_id": "4",
+      "price": {
+        "mrp": 7999,
+        "buying_price": 6000,
+        "selling_price": 6999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 50
+      },
+      "brand": "Boat",
+      "tag": [
+        "smartwatch",
+        "alexa"
+      ],
+      "status": "publish",
+      "image": "boat-xtend.jpg",
+      "datetime": "2026-02-03T11:45:00"
     },
-    "brand": "Pigeon",
-    "tag": ["kitchen", "rice cooker"],
-    "status": "publish",
-    "image": "rice-cooker.jpg",
-    "datetime": "2026-02-03T11:40:00"
-  }
-
-
-],
+    {
+      "id": "SW405",
+      "product_name": "Fire-Boltt Ninja",
+      "description": "Touchscreen smartwatch",
+      "category_id": "4",
+      "price": {
+        "mrp": 3999,
+        "buying_price": 2800,
+        "selling_price": 3499
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 65
+      },
+      "brand": "Fire-Boltt",
+      "tag": [
+        "watch",
+        "fitness"
+      ],
+      "status": "publish",
+      "image": "fireboltt-ninja.jpg",
+      "datetime": "2026-02-03T11:50:00"
+    },
+    {
+      "id": "SW406",
+      "product_name": "Amazfit GTS 4",
+      "description": "Premium fitness smartwatch",
+      "category_id": "4",
+      "price": {
+        "mrp": 16999,
+        "buying_price": 14500,
+        "selling_price": 15999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 22
+      },
+      "brand": "Amazfit",
+      "tag": [
+        "fitness",
+        "premium"
+      ],
+      "status": "publish",
+      "image": "amazfit-gts4.jpg",
+      "datetime": "2026-02-03T11:55:00"
+    },
+    {
+      "id": "HL501",
+      "product_name": "Wooden Coffee Table",
+      "description": "Modern wooden coffee table",
+      "category_id": "5",
+      "price": {
+        "mrp": 12999,
+        "buying_price": 9000,
+        "selling_price": 10999
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 10
+      },
+      "brand": "HomeTown",
+      "tag": [
+        "furniture",
+        "living"
+      ],
+      "status": "publish",
+      "image": "coffee-table.jpg",
+      "datetime": "2026-02-03T12:00:00"
+    },
+    {
+      "id": "HL502",
+      "product_name": "Sofa Cushion Set",
+      "description": "Soft cushion set of 5",
+      "category_id": "5",
+      "price": {
+        "mrp": 2999,
+        "buying_price": 1800,
+        "selling_price": 2499
+      },
+      "unit": "set",
+      "stock": {
+        "qty": 40
+      },
+      "brand": "IKEA",
+      "tag": [
+        "decor",
+        "cushion"
+      ],
+      "status": "publish",
+      "image": "sofa-cushion.jpg",
+      "datetime": "2026-02-03T12:05:00"
+    },
+    {
+      "id": "HL503",
+      "product_name": "Floor Lamp",
+      "description": "Decorative LED floor lamp",
+      "category_id": "5",
+      "price": {
+        "mrp": 4999,
+        "buying_price": 3500,
+        "selling_price": 4299
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 25
+      },
+      "brand": "Philips",
+      "tag": [
+        "lighting",
+        "decor"
+      ],
+      "status": "publish",
+      "image": "floor-lamp.jpg",
+      "datetime": "2026-02-03T12:10:00"
+    },
+    {
+      "id": "HL504",
+      "product_name": "Wall Clock",
+      "description": "Minimal wall clock",
+      "category_id": "5",
+      "price": {
+        "mrp": 1999,
+        "buying_price": 1200,
+        "selling_price": 1599
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 35
+      },
+      "brand": "Ajanta",
+      "tag": [
+        "clock",
+        "decor"
+      ],
+      "status": "publish",
+      "image": "wall-clock.jpg",
+      "datetime": "2026-02-03T12:15:00"
+    },
+    {
+      "id": "HL505",
+      "product_name": "Bedsheet Set",
+      "description": "Cotton double bedsheet set",
+      "category_id": "5",
+      "price": {
+        "mrp": 3499,
+        "buying_price": 2200,
+        "selling_price": 2999
+      },
+      "unit": "set",
+      "stock": {
+        "qty": 45
+      },
+      "brand": "Bombay Dyeing",
+      "tag": [
+        "bedsheet",
+        "home"
+      ],
+      "status": "publish",
+      "image": "bedsheet.jpg",
+      "datetime": "2026-02-03T12:20:00"
+    },
+    {
+      "id": "HL506",
+      "product_name": "Curtain Set",
+      "description": "Premium blackout curtains",
+      "category_id": "5",
+      "price": {
+        "mrp": 5999,
+        "buying_price": 4200,
+        "selling_price": 5199
+      },
+      "unit": "set",
+      "stock": {
+        "qty": 18
+      },
+      "brand": "Story@Home",
+      "tag": [
+        "curtain",
+        "decor"
+      ],
+      "status": "publish",
+      "image": "curtain.jpg",
+      "datetime": "2026-02-03T12:25:00"
+    },
+    {
+      "id": "PROD205",
+      "product_name": "Mixer Grinder 750W",
+      "description": "High performance mixer grinder with 3 jars",
+      "category_id": "6",
+      "price": {
+        "mrp": 4999,
+        "buying_price": 3200,
+        "selling_price": 3899
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 25
+      },
+      "brand": "Philips",
+      "tag": [
+        "kitchen",
+        "mixer",
+        "appliance"
+      ],
+      "status": "publish",
+      "image": "mixer-grinder.jpg",
+      "datetime": "2026-02-03T11:00:00"
+    },
+    {
+      "id": "KA202",
+      "product_name": "Electric Kettle 1.5L",
+      "description": "Stainless steel electric kettle with auto cut-off",
+      "category_id": "6",
+      "price": {
+        "mrp": 1999,
+        "buying_price": 1100,
+        "selling_price": 1499
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 40
+      },
+      "brand": "Prestige",
+      "tag": [
+        "kitchen",
+        "kettle"
+      ],
+      "status": "publish",
+      "image": "electric-kettle.jpg",
+      "datetime": "2026-02-03T11:10:00"
+    },
+    {
+      "id": "KA203",
+      "product_name": "Induction Cooktop",
+      "description": "Energy efficient induction cooktop with touch control",
+      "category_id": "6",
+      "price": {
+        "mrp": 4599,
+        "buying_price": 3000,
+        "selling_price": 3699
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 30
+      },
+      "brand": "Bajaj",
+      "tag": [
+        "kitchen",
+        "induction"
+      ],
+      "status": "publish",
+      "image": "induction-cooktop.jpg",
+      "datetime": "2026-02-03T11:20:00"
+    },
+    {
+      "id": "KA204",
+      "product_name": "OTG Oven 19L",
+      "description": "Compact OTG oven for baking and grilling",
+      "category_id": "6",
+      "price": {
+        "mrp": 6999,
+        "buying_price": 4800,
+        "selling_price": 5599
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 15
+      },
+      "brand": "Morphy Richards",
+      "tag": [
+        "kitchen",
+        "oven",
+        "otg"
+      ],
+      "status": "publish",
+      "image": "otg-oven.jpg",
+      "datetime": "2026-02-03T11:30:00"
+    },
+    {
+      "id": "KA205",
+      "product_name": "Rice Cooker 1.8L",
+      "description": "Automatic rice cooker with keep warm function",
+      "category_id": "6",
+      "price": {
+        "mrp": 2999,
+        "buying_price": 1800,
+        "selling_price": 2299
+      },
+      "unit": "pcs",
+      "stock": {
+        "qty": 35
+      },
+      "brand": "Pigeon",
+      "tag": [
+        "kitchen",
+        "rice cooker"
+      ],
+      "status": "publish",
+      "image": "rice-cooker.jpg",
+      "datetime": "2026-02-03T11:40:00"
+    }
+  ],
   "buyers": [
-  {
-    "customer_id": "CUST001",
-    "name": "Avijit Mondal",
-    "email": "avijit@gmail.com",
-    "mobile": "9876543201",
-    "password": "1234",
-    "role": "buyer",
-    "datetime": "2026-02-01T10:15:00",
-    "addresses": [
-      {
-        "address_id": "ADDR001",
-        "name": "Avijit Mondal",
-        "mobile": "9876543201",
-        "address": "MG Road",
-        "city": "Bengaluru",
-        "pincode": "560001",
-        "state": "Karnataka",
-        "type": "Home",
-        "isDefault": true
-      },
-      {
-        "address_id": "ADDR002",
-        "name": "Avijit Mondal",
-        "mobile": "9876543201",
-        "address": "Whitefield",
-        "city": "Bengaluru",
-        "pincode": "560066",
-        "state": "Karnataka",
-        "type": "Office",
-        "isDefault": false
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST002",
-    "name": "Anita Verma",
-    "email": "anita.verma@gmail.com",
-    "mobile": "9876543202",
-    "password": "anita@123",
-    "role": "buyer",
-    "datetime": "2026-02-01T11:00:00",
-    "addresses": [
-      {
-        "address_id": "ADDR003",
-        "name": "Anita Verma",
-        "mobile": "9876543202",
-        "address": "Lajpat Nagar",
-        "city": "Delhi",
-        "pincode": "110024",
-        "state": "Delhi",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST003",
-    "name": "Sourav Das",
-    "email": "sourav.das@gmail.com",
-    "mobile": "9876543203",
-    "password": "sourav@123",
-    "role": "buyer",
-    "datetime": "2026-02-02T09:45:00",
-    "addresses": [
-      {
-        "address_id": "ADDR004",
-        "name": "Sourav Das",
-        "mobile": "9876543203",
-        "address": "Garia",
-        "city": "Kolkata",
-        "pincode": "700084",
-        "state": "West Bengal",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST004",
-    "name": "Priya Singh",
-    "email": "priya.singh@gmail.com",
-    "mobile": "9876543204",
-    "password": "priya@123",
-    "role": "buyer",
-    "datetime": "2026-02-02T13:30:00",
-    "addresses": [
-      {
-        "address_id": "ADDR005",
-        "name": "Priya Singh",
-        "mobile": "9876543204",
-        "address": "Park Street",
-        "city": "Kolkata",
-        "pincode": "700016",
-        "state": "West Bengal",
-        "type": "Home",
-        "isDefault": true
-      },
-      {
-        "address_id": "ADDR006",
-        "name": "Priya Singh",
-        "mobile": "9876543204",
-        "address": "Salt Lake Sector V",
-        "city": "Kolkata",
-        "pincode": "700091",
-        "state": "West Bengal",
-        "type": "Office",
-        "isDefault": false
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST005",
-    "name": "Amit Patel",
-    "email": "amit.patel@gmail.com",
-    "mobile": "9876543205",
-    "password": "amit@123",
-    "role": "buyer",
-    "datetime": "2026-02-03T08:20:00",
-    "addresses": [
-      {
-        "address_id": "ADDR007",
-        "name": "Amit Patel",
-        "mobile": "9876543205",
-        "address": "CG Road",
-        "city": "Ahmedabad",
-        "pincode": "380009",
-        "state": "Gujarat",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST006",
-    "name": "Neha Joshi",
-    "email": "neha.joshi@gmail.com",
-    "mobile": "9876543206",
-    "password": "neha@123",
-    "role": "buyer",
-    "datetime": "2026-02-03T14:10:00",
-    "addresses": [
-      {
-        "address_id": "ADDR008",
-        "name": "Neha Joshi",
-        "mobile": "9876543206",
-        "address": "Baner",
-        "city": "Pune",
-        "pincode": "411045",
-        "state": "Maharashtra",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST007",
-    "name": "Vikram Mehta",
-    "email": "vikram.mehta@gmail.com",
-    "mobile": "9876543207",
-    "password": "vikram@123",
-    "role": "buyer",
-    "datetime": "2026-02-04T10:40:00",
-    "addresses": [
-      {
-        "address_id": "ADDR009",
-        "name": "Vikram Mehta",
-        "mobile": "9876543207",
-        "address": "Andheri West",
-        "city": "Mumbai",
-        "pincode": "400058",
-        "state": "Maharashtra",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST008",
-    "name": "Pooja Nair",
-    "email": "pooja.nair@gmail.com",
-    "mobile": "9876543208",
-    "password": "pooja@123",
-    "role": "buyer",
-    "datetime": "2026-02-04T15:25:00",
-    "addresses": [
-      {
-        "address_id": "ADDR010",
-        "name": "Pooja Nair",
-        "mobile": "9876543208",
-        "address": "Kakkanad",
-        "city": "Kochi",
-        "pincode": "682030",
-        "state": "Kerala",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST009",
-    "name": "Rohit Yadav",
-    "email": "rohit.yadav@gmail.com",
-    "mobile": "9876543209",
-    "password": "rohit@123",
-    "role": "buyer",
-    "datetime": "2026-02-05T09:10:00",
-    "addresses": [
-      {
-        "address_id": "ADDR011",
-        "name": "Rohit Yadav",
-        "mobile": "9876543209",
-        "address": "Sector 62",
-        "city": "Noida",
-        "pincode": "201309",
-        "state": "Uttar Pradesh",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  },
-
-  {
-    "customer_id": "CUST010",
-    "name": "Kunal Roy",
-    "email": "kunal.roy@gmail.com",
-    "mobile": "9876543210",
-    "password": "kunal@123",
-    "role": "buyer",
-    "datetime": "2026-02-05T16:50:00",
-    "addresses": [
-      {
-        "address_id": "ADDR012",
-        "name": "Kunal Roy",
-        "mobile": "9876543210",
-        "address": "New Town",
-        "city": "Kolkata",
-        "pincode": "700156",
-        "state": "West Bengal",
-        "type": "Home",
-        "isDefault": true
-      }
-    ]
-  }
-],
+    {
+      "customer_id": "CUST001",
+      "name": "Avijit Mondal",
+      "email": "avijit@gmail.com",
+      "mobile": "9876543201",
+      "password": "1234",
+      "id": 1,
+      "addresses": [
+        {
+          "address_id": "ADDR5",
+          "customer_id": "CUST001",
+          "name": "Avijit Mondal",
+          "address": "TG-2/27, Tegharia",
+          "mobile": "9874438716",
+          "state": "West Bengal",
+          "city": "North 24 Parganas district",
+          "pincode": "700157",
+          "type": "Home",
+          "isDefault": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "customer_id": "CUST002",
+      "name": "Anita Verma",
+      "email": "anita.verma@gmail.com",
+      "mobile": "9876543202",
+      "password": "anita@123",
+      "role": "buyer",
+      "datetime": "2026-02-01T11:00:00",
+      "addresses": [
+        {
+          "address_id": "ADDR003",
+          "name": "Anita Verma",
+          "mobile": "9876543202",
+          "address": "Lajpat Nagar",
+          "city": "Delhi",
+          "pincode": "110024",
+          "state": "Delhi",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "customer_id": "CUST003",
+      "name": "Sourav Das",
+      "email": "sourav.das@gmail.com",
+      "mobile": "9876543203",
+      "password": "sourav@123",
+      "role": "buyer",
+      "datetime": "2026-02-02T09:45:00",
+      "addresses": [
+        {
+          "address_id": "ADDR004",
+          "name": "Sourav Das",
+          "mobile": "9876543203",
+          "address": "Garia",
+          "city": "Kolkata",
+          "pincode": "700084",
+          "state": "West Bengal",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "customer_id": "CUST004",
+      "name": "Priya Singh",
+      "email": "priya.singh@gmail.com",
+      "mobile": "9876543204",
+      "password": "priya@123",
+      "role": "buyer",
+      "datetime": "2026-02-02T13:30:00",
+      "addresses": [
+        {
+          "address_id": "ADDR005",
+          "name": "Priya Singh",
+          "mobile": "9876543204",
+          "address": "Park Street",
+          "city": "Kolkata",
+          "pincode": "700016",
+          "state": "West Bengal",
+          "type": "Home",
+          "isDefault": true
+        },
+        {
+          "address_id": "ADDR006",
+          "name": "Priya Singh",
+          "mobile": "9876543204",
+          "address": "Salt Lake Sector V",
+          "city": "Kolkata",
+          "pincode": "700091",
+          "state": "West Bengal",
+          "type": "Office",
+          "isDefault": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "customer_id": "CUST005",
+      "name": "Amit Patel",
+      "email": "amit.patel@gmail.com",
+      "mobile": "9876543205",
+      "password": "amit@123",
+      "role": "buyer",
+      "datetime": "2026-02-03T08:20:00",
+      "addresses": [
+        {
+          "address_id": "ADDR007",
+          "name": "Amit Patel",
+          "mobile": "9876543205",
+          "address": "CG Road",
+          "city": "Ahmedabad",
+          "pincode": "380009",
+          "state": "Gujarat",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "customer_id": "CUST006",
+      "name": "Neha Joshi",
+      "email": "neha.joshi@gmail.com",
+      "mobile": "9876543206",
+      "password": "neha@123",
+      "role": "buyer",
+      "datetime": "2026-02-03T14:10:00",
+      "addresses": [
+        {
+          "address_id": "ADDR008",
+          "name": "Neha Joshi",
+          "mobile": "9876543206",
+          "address": "Baner",
+          "city": "Pune",
+          "pincode": "411045",
+          "state": "Maharashtra",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "customer_id": "CUST007",
+      "name": "Vikram Mehta",
+      "email": "vikram.mehta@gmail.com",
+      "mobile": "9876543207",
+      "password": "vikram@123",
+      "role": "buyer",
+      "datetime": "2026-02-04T10:40:00",
+      "addresses": [
+        {
+          "address_id": "ADDR009",
+          "name": "Vikram Mehta",
+          "mobile": "9876543207",
+          "address": "Andheri West",
+          "city": "Mumbai",
+          "pincode": "400058",
+          "state": "Maharashtra",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "customer_id": "CUST008",
+      "name": "Pooja Nair",
+      "email": "pooja.nair@gmail.com",
+      "mobile": "9876543208",
+      "password": "pooja@123",
+      "role": "buyer",
+      "datetime": "2026-02-04T15:25:00",
+      "addresses": [
+        {
+          "address_id": "ADDR010",
+          "name": "Pooja Nair",
+          "mobile": "9876543208",
+          "address": "Kakkanad",
+          "city": "Kochi",
+          "pincode": "682030",
+          "state": "Kerala",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "customer_id": "CUST009",
+      "name": "Rohit Yadav",
+      "email": "rohit.yadav@gmail.com",
+      "mobile": "9876543209",
+      "password": "rohit@123",
+      "role": "buyer",
+      "datetime": "2026-02-05T09:10:00",
+      "addresses": [
+        {
+          "address_id": "ADDR011",
+          "name": "Rohit Yadav",
+          "mobile": "9876543209",
+          "address": "Sector 62",
+          "city": "Noida",
+          "pincode": "201309",
+          "state": "Uttar Pradesh",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "customer_id": "CUST010",
+      "name": "Kunal Roy",
+      "email": "kunal.roy@gmail.com",
+      "mobile": "9876543210",
+      "password": "kunal@123",
+      "role": "buyer",
+      "datetime": "2026-02-05T16:50:00",
+      "addresses": [
+        {
+          "address_id": "ADDR012",
+          "name": "Kunal Roy",
+          "mobile": "9876543210",
+          "address": "New Town",
+          "city": "Kolkata",
+          "pincode": "700156",
+          "state": "West Bengal",
+          "type": "Home",
+          "isDefault": true
+        }
+      ]
+    }
+  ],
   "orders": [
     {
       "order_id": "ORD001",
@@ -810,7 +1105,7 @@
     {
       "order_id": "ORD002",
       "product_id": "PROD205",
-      "customer_id": "CUST002",
+      "customer_id": "CUST001",
       "qty": 1,
       "price": 2499,
       "total_price": 2499,
@@ -821,7 +1116,7 @@
     {
       "order_id": "ORD003",
       "product_id": "PROD309",
-      "customer_id": "CUST001",
+      "customer_id": "CUST002",
       "qty": 3,
       "price": 499,
       "total_price": 1497,
@@ -851,7 +1146,21 @@
       "address_id": "ADDR008",
       "expected_delivery_date": "2026-02-18"
     }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "customer_id": "CUST009"
+    }
+  ],
+
+  "cart_items": [
+    {
+      "id": 1,
+      "cart_id": 1,
+      "product_id": 101,
+      "price": 80000,
+      "quantity": 2
+    }
   ]
 }
-
-

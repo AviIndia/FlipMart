@@ -35,6 +35,7 @@ export class LoginComponent {
         if(data && data.length>0)
         {
           const buyer = data[0];
+          localStorage.setItem('id',buyer.id)
           localStorage.setItem('cust_id',buyer.customer_id);
           localStorage.setItem('cust_name',buyer.name);
           localStorage.setItem('email',buyer.email);

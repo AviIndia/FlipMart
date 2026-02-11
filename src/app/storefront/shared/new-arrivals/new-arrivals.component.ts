@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { HomeSidebarService } from '../../featured/featured-services/home-sidebar/home-sidebar.service';
 import { CommonModule } from '@angular/common';
+import { CartServiceService } from '../../featured/services/cart-service.service';
 declare var $: any;
 
 @Component({
@@ -13,7 +14,7 @@ declare var $: any;
 export class NewArrivalsComponent implements OnInit {
 	  productData:any[]=[];
 	  randomproductData:any[]=[];
-	constructor(private productService:HomeSidebarService) { }
+	constructor(private productService:HomeSidebarService, private cartService:CartServiceService) { }
 ngOnInit(): void {
 	this.featuredProduct();
 }
@@ -29,7 +30,15 @@ featuredProduct()
 	})
 }
 
+addToCart(item: any) {
 
+  const product = {
+    id: item.id,
+    price: item.price.selling_price
+  };
+  console.log(item);
+  this.cartService.addToCart(product);
+}
 
 
 initFeaturedCarousel() {

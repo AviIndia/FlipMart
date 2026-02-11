@@ -18,8 +18,24 @@ export class StorefrontService {
   singleBuyer(customer_id:any):Observable<any>
   {
     console.log(customer_id);
-    return this.apiService.get<any>(this.url+'/buyers?customer_id='+customer_id).pipe(
-      map(add=>add.length > 0 ? add[0].addresses :[])
-    )
+    return this.apiService.get<any>(this.url+'/buyers?customer_id='+customer_id)
   }
+
+  
+ 
+  buyerOrder(customer_id:any){
+  return this.apiService.get<any[]>(`${this.url}/orders?customer_id=${customer_id}`,
+   
+  );
+}
+getProducts() {
+  return this.apiService.get<any[]>(`${this.url}/products`);
+}
+/* updateBuyerAddress(buyerId: number, data: any) {
+  return this.apiService.put(`${this.url}/buyers?customer_id=${buyerId}`,data);
+} */
+updateBuyerAddress(id:any, data: any) {
+  return this.apiService.put(`${this.url}/buyers/${id}`, data);
+}
+
 }

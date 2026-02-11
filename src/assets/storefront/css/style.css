@@ -6258,13 +6258,13 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 
 .myaccount-table {
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .myaccount-table table th,
 .myaccount-table .table th {
     color: #000000;
-    padding: 10px;
+    padding: 4px;
     font-weight: 500;
     background-color: #f8f8f8;
     border-color: #ccc;
@@ -6273,7 +6273,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 
 .myaccount-table table td,
 .myaccount-table .table td {
-    padding: 10px;
+    padding: 4px;
     vertical-align: middle;
     border-color: #ccc;
 }
