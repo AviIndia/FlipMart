@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StorefrontService } from '../services/storefront.service';
 import { Router } from '@angular/router';
+import { CartServiceService } from '../services/cart-service.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   loginForm!:FormGroup;
-  constructor(private fb:FormBuilder,private loginApi:StorefrontService,private router:Router){}
+  constructor(private cartService:CartServiceService, private fb:FormBuilder,private loginApi:StorefrontService,private router:Router){}
   ngOnInit():void
   {
     this.loginForm = this.fb.group({
@@ -36,11 +37,13 @@ export class LoginComponent {
         {
           const buyer = data[0];
           localStorage.setItem('id',buyer.id)
-          localStorage.setItem('cust_id',buyer.customer_id);
+          localStorage.setItem('customer_id',buyer.customer_id);
           localStorage.setItem('cust_name',buyer.name);
           localStorage.setItem('email',buyer.email);
           localStorage.setItem('role',buyer.role);
-          this.router.navigate(['/cart'])
+          this.router.navigate(['/cart']);
+
+          this.cartService.mergeGuestCartAfterLogin(buyer.customer_id);
         }
         else{
           alert("Please Check your login details!")

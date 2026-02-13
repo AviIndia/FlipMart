@@ -8,7 +8,6 @@ export class CartServiceService {
 
   private url = 'http://localhost:3000';
 
-  // 🧠 Cart State
   private cartItemsSignal = signal<any[]>([]);
   cartItems = this.cartItemsSignal.asReadonly();
 
@@ -26,56 +25,66 @@ export class CartServiceService {
     this.loadGuestCart();
   }
 
-  // ===============================
-  // 🛒 MAIN ADD TO CART METHOD
-  // ===============================
+  // =====================================
+  // 🛒 MAIN ADD TO CART
+  // =====================================
 
   addToCart(product: any) {
 
     const customerId = localStorage.getItem('customer_id');
 
     if (!customerId) {
-      // 🟢 Guest Cart
       this.addToGuestCart(product);
     } else {
-      // 🟢 Logged In Cart
       this.addToServerCart(product, customerId);
     }
   }
 
-  // ===============================
-  // 🟢 Guest Cart (LocalStorage)
-  // ===============================
+  // =====================================
+  // 🟢 Guest Cart
+  // =====================================
 
   private addToGuestCart(product: any) {
 
-    const existing = this.cartItemsSignal()
-      .find(i => i.product_id === product.id);
+  console.log("Product received:", product);
 
-    if (existing) {
+  const sellingPrice =
+    product?.price?.selling_price ??
+    product?.selling_price ??
+    product?.price ??
+    0;
 
-      this.cartItemsSignal.update(items =>
-        items.map(i =>
-          i.product_id === product.id
-            ? { ...i, quantity: i.quantity + 1 }
-            : i
-        )
-      );
+  const existing = this.cartItemsSignal()
+    .find(i => i.product_id === product.id);
 
-    } else {
+  if (existing) {
 
-      const newItem = {
-        product_id: product.id,
-        price: product.price,
-        quantity: 1
-      };
+    this.cartItemsSignal.update(items =>
+      items.map(i =>
+        i.product_id === product.id
+          ? { ...i, quantity: i.quantity + 1 }
+          : i
+      )
+    );
 
-      this.cartItemsSignal.update(items => [...items, newItem]);
-    }
+  } else {
 
-    localStorage.setItem('guest_cart',
-      JSON.stringify(this.cartItemsSignal()));
+    const newItem = {
+      product_id: product.id,
+      price: Number(sellingPrice),
+      quantity: 1
+    };
+
+    this.cartItemsSignal.update(items => [...items, newItem]);
   }
+
+  localStorage.setItem(
+    'guest_cart',
+    JSON.stringify(this.cartItemsSignal())
+  );
+
+  console.log("Saved Cart:", this.cartItemsSignal());
+}
 
   private loadGuestCart() {
     const data = localStorage.getItem('guest_cart');
@@ -84,9 +93,9 @@ export class CartServiceService {
     }
   }
 
-  // ===============================
-  // 🟢 Server Cart (Login User)
-  // ===============================
+  // =====================================
+  // 🔵 Server Cart
+  // =====================================
 
   private addToServerCart(product: any, customerId: string) {
 
@@ -111,40 +120,104 @@ export class CartServiceService {
 
   private insertItem(product: any, cartId: number) {
 
-    const existing = this.cartItemsSignal()
-      .find(i => i.product_id === product.id);
+    this.api.get<any[]>(
+      `${this.url}/cart_items?cart_id=${cartId}&product_id=${product.id}`
+    ).subscribe(items => {
 
-    if (existing) {
+      if (items.length) {
 
-      const updatedQty = existing.quantity + 1;
+        const existing = items[0];
+        const updatedQty = existing.quantity + 1;
 
-      this.api.patch(`${this.url}/cart_items/${existing.id}`, {
-        quantity: updatedQty
-      }).subscribe(() => {
+        this.api.patch(
+          `${this.url}/cart_items/${existing.id}`,
+          { quantity: updatedQty }
+        ).subscribe(() => {
 
-        this.cartItemsSignal.update(items =>
-          items.map(i =>
-            i.product_id === product.id
-              ? { ...i, quantity: updatedQty }
-              : i
-          )
-        );
-      });
+          this.cartItemsSignal.update(list =>
+            list.map(i =>
+              i.product_id === product.id
+                ? { ...i, quantity: updatedQty }
+                : i
+            )
+          );
+        });
+
+      } else {
+
+        const newItem = {
+          cart_id: cartId,
+          product_id: product.id,
+          price: product.price.selling_price,
+          quantity: 1
+        };
+
+        this.api.post<any>(
+          `${this.url}/cart_items`,
+          newItem
+        ).subscribe(created => {
+
+          this.cartItemsSignal.update(list => [...list, created]);
+        });
+      }
+
+    });
+  }
+
+  // =====================================
+  // ❌ REMOVE
+  // =====================================
+
+  removeFromCart(item: any) {
+
+    const customerId = localStorage.getItem('customer_id');
+
+    if (!customerId) {
+
+      this.cartItemsSignal.update(items =>
+        items.filter(i => i.product_id !== item.product_id)
+      );
+
+      localStorage.setItem(
+        'guest_cart',
+        JSON.stringify(this.cartItemsSignal())
+      );
 
     } else {
 
-      const newItem = {
-        cart_id: cartId,
-        product_id: product.id,
-        price: product.price,
-        quantity: 1
-      };
+      this.api.delete( `${this.url}/cart_items/${item.id}`).subscribe(() => {
 
-      this.api.post<any>(`${this.url}/cart_items`, newItem)
-        .subscribe(created => {
-
-          this.cartItemsSignal.update(items => [...items, created]);
-        });
+        this.cartItemsSignal.update(items =>
+          items.filter(i => i.product_id !== item.product_id)
+        );
+      });
     }
   }
+// =====================================
+// 🔄 MERGE GUEST CART AFTER LOGIN
+// =====================================
+
+mergeGuestCartAfterLogin(customerId: string) {
+
+  const guestCart = localStorage.getItem('guest_cart');
+
+  if (!guestCart) return;
+
+  const items = JSON.parse(guestCart);
+
+  items.forEach((item: any) => {
+
+    const product = {
+      id: item.product_id,
+      price: item.price
+    };
+
+    this.addToServerCart(product, customerId);
+  });
+
+  // clear guest cart
+  localStorage.removeItem('guest_cart');
+  this.cartItemsSignal.set([]);
+}
+
 }

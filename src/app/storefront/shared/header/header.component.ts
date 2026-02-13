@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, computed, OnDestroy, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 import { HeaderService } from '../shared-services/header.service';
 import { CartServiceService } from '../../featured/services/cart-service.service';
+import { StorefrontService } from '../../featured/services/storefront.service';
 
 declare var jQuery: any;
 declare var $: any;
@@ -19,10 +20,14 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   categoryData:any[]=[];
   isHome = false;
  isLoggedIn = false;
+ minicartData:any[]=[];
 cust_name: string = 'My Account';
-constructor(private route:Router, private headerService: HeaderService,public cartService:CartServiceService) { }
-ngOnInit(): void {
 
+  products = signal<any[]>([]);
+constructor(private route:Router, private headerService: HeaderService,
+  public cartService:CartServiceService,private api:StorefrontService) { }
+ngOnInit(): void {
+ this.loadProducts(); 
 const role = localStorage.getItem('role');
 
   if (role) {
@@ -53,6 +58,24 @@ logout() {
   this.cust_name = 'My Account';
   this.route.navigate(['/home']);
 }
+loadProducts() {
+    this.api.getProducts().subscribe(data => {
+      this.products.set(data);
+    });
+  }
+cartWithProduct = computed(() => {
+  return this.cartService.cartItems().map(cart => {
+    const product = this.products().find(p => p.id === cart.product_id);
+console.log(product);
+    return {
+      ...cart,
+      product_name: product?.product_name || 'Unknown',
+      image: product?.image || ''
+    };
+    
+  });
+});
+
 
 
 
