@@ -5,7 +5,7 @@ export const authguardGuard: CanActivateFn = (route, state) => {
 
   const router = inject(Router);
 
-  const cust_id = localStorage.getItem('cust_id');
+  const cust_id = localStorage.getItem('customer_id');
   const role = localStorage.getItem('role');
 
   // ✅ buyer logged in

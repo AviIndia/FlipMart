@@ -855,6 +855,7 @@
       "email": "avijit@gmail.com",
       "mobile": "9876543201",
       "password": "1234",
+      "role": "buyer",
       "id": 1,
       "addresses": [
         {
@@ -867,7 +868,7 @@
           "city": "North 24 Parganas district",
           "pincode": "700157",
           "type": "Home",
-          "isDefault": false
+          "isDefault": true
         }
       ]
     },
@@ -1091,94 +1092,13 @@
     }
   ],
   "orders": [
-    {
-      "order_id": "ORD001",
-      "product_id": "PROD101",
-      "customer_id": "CUST001",
-      "qty": 2,
-      "price": 799,
-      "total_price": 1598,
-      "payment_type": "COD",
-      "address_id": "ADDR001",
-      "expected_delivery_date": "2026-02-10"
-    },
-    {
-      "order_id": "ORD002",
-      "product_id": "PROD205",
-      "customer_id": "CUST001",
-      "qty": 1,
-      "price": 2499,
-      "total_price": 2499,
-      "payment_type": "UPI",
-      "address_id": "ADDR004",
-      "expected_delivery_date": "2026-02-12"
-    },
-    {
-      "order_id": "ORD003",
-      "product_id": "PROD309",
-      "customer_id": "CUST002",
-      "qty": 3,
-      "price": 499,
-      "total_price": 1497,
-      "payment_type": "CARD",
-      "address_id": "ADDR002",
-      "expected_delivery_date": "2026-02-14"
-    },
-    {
-      "order_id": "ORD004",
-      "product_id": "PROD412",
-      "customer_id": "CUST003",
-      "qty": 1,
-      "price": 8999,
-      "total_price": 8999,
-      "payment_type": "NET_BANKING",
-      "address_id": "ADDR006",
-      "expected_delivery_date": "2026-02-15"
-    },
-    {
-      "order_id": "ORD005",
-      "product_id": "PROD118",
-      "customer_id": "CUST004",
-      "qty": 4,
-      "price": 299,
-      "total_price": 1196,
-      "payment_type": "COD",
-      "address_id": "ADDR008",
-      "expected_delivery_date": "2026-02-18"
-    }
+    {}
   ],
   "carts": [
     {
-      "id": 1,
-      "customer_id": "CUST009"
-    },
-    {
       "customer_id": "CUST001",
-      "id": 2
-    },
-    {
-      "customer_id": "1",
-      "id": 3
+      "id": 1
     }
   ],
-  "cart_items": [
-    {
-      "cart_id": 2,
-      "product_id": "KA202",
-      "quantity": 2,
-      "id": 2
-    },
-    {
-      "cart_id": 3,
-      "product_id": "KA203",
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "cart_id": 2,
-      "product_id": "SP304",
-      "quantity": 1,
-      "id": 4
-    }
-  ]
+  "cart_items": []
 }

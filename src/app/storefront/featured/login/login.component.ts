@@ -17,7 +17,7 @@ import { CartServiceService } from '../services/cart-service.service';
 export class LoginComponent {
 
   loginForm!:FormGroup;
-  constructor(private cartService:CartServiceService, private fb:FormBuilder,private loginApi:StorefrontService,private router:Router){}
+  constructor(public cartService:CartServiceService, private fb:FormBuilder,private loginApi:StorefrontService,private router:Router){}
   ngOnInit():void
   {
     this.loginForm = this.fb.group({
@@ -43,7 +43,11 @@ export class LoginComponent {
           localStorage.setItem('role',buyer.role);
           this.router.navigate(['/cart']);
 
-          this.cartService.mergeGuestCartAfterLogin(buyer.customer_id);
+         this.cartService.mergeGuestCartAfterLogin(buyer.customer_id);
+
+         setTimeout(() => {
+          this.cartService.loadServerCart(buyer.customer_id);
+        }, 300);
         }
         else{
           alert("Please Check your login details!")

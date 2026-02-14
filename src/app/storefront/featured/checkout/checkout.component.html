@@ -111,7 +111,10 @@
                         <div class="address-container">
                             <div class="address-card" *ngFor="let addr of buyerAddress">
                                 <label>
-                                    <input type="radio" name="address" [checked]="addr.isDefault"> &nbsp;
+                                    <input type="radio"
+                                            name="address"
+                                            [value]="addr.address_id"
+                                            [(ngModel)]="selectedAddressId" [checked]="addr.isDefault">
                                     <strong>{{addr.name}} ({{addr.type}})</strong>
                                     <p>{{addr.address}}</p>
                                     <p>{{addr.city}}</p>
@@ -143,55 +146,51 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><a href="single-product.html">Suscipit Vestibulum <strong> × 1</strong></a>
+                                    <tr *ngFor="let item of cartWithProduct()">
+
+                                        <td>
+                                        {{ item.product_name }}
+                                        <strong> × {{ item.quantity }}</strong>
                                         </td>
-                                        <td>₹165.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="single-product.html">Ami Vestibulum suscipit <strong> ×
-                                                    4</strong></a></td>
-                                        <td>₹165.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="single-product.html">Vestibulum suscipit <strong> × 2</strong></a>
+
+                                        <td>
+                                        ₹{{ item.price * item.quantity }}
                                         </td>
-                                        <td>₹165.00</td>
+
                                     </tr>
-                                </tbody>
+                                    </tbody>
+
                                 <tfoot>
-                                    <tr>
-                                        <td>Sub Total</td>
-                                        <td><strong>₹400</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Shipping</td>
-                                        <td class="d-flex justify-content-center">
-                                            <ul class="shipping-type">
-                                                <li>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="flatrate" name="shipping"
-                                                            class="custom-control-input" checked />
-                                                        <label class="custom-control-label" for="flatrate">Flat Rate:
-                                                            ₹70.00</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="freeshipping" name="shipping"
-                                                            class="custom-control-input" />
-                                                        <label class="custom-control-label" for="freeshipping">Free
-                                                            Shipping</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total Amount</td>
-                                        <td><strong>₹470</strong></td>
-                                    </tr>
-                                </tfoot>
+
+                                        <tr>
+                                            <td>Sub Total</td>
+                                            <td><strong>₹{{ cartService.cartTotal() }}</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Shipping</td>
+                                            <td>
+
+                                            <span *ngIf="cartService.shippingCost() === 0" style="color: green;">
+                                                Free Shipping
+                                            </span>
+
+                                            <span *ngIf="cartService.shippingCost() !== 0">
+                                                ₹{{ cartService.shippingCost() }}
+                                            </span>
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Total Amount</td>
+                                            <td>
+                                            <strong>₹{{ cartService.grandTotal() }}</strong>
+                                            </td>
+                                        </tr>
+
+                                        </tfoot>
+
                             </table>
                         </div>
                         <!-- Order Payment Method -->
@@ -199,8 +198,11 @@
                             <div class="single-payment-method show">
                                 <div class="payment-method-name">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="cashon" name="paymentmethod" value="cash"
-                                            class="custom-control-input" checked />
+                                       <input type="radio"
+                                            name="paymentmethod"
+                                            value="COD"
+                                            [(ngModel)]="selectedPayment">
+
                                         <label class="custom-control-label" for="cashon">Cash On Delivery</label>
                                     </div>
                                 </div>
@@ -227,7 +229,8 @@
                                     <label class="custom-control-label" for="terms">I have read and agree to the website
                                         <a href="index.html">terms and conditions.</a></label>
                                 </div>
-                                <button type="submit" class="check-btn sqr-btn">Place Order</button>
+                                <button type="button" (click)="placeOrder()" class="check-btn sqr-btn">Place Order</button>
+
                             </div>
                         </div>
                     </div>

@@ -38,24 +38,40 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                               <tr  *ngFor="let item of cartService.cartItems()">
-                                    <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="../../../../assets/storefront/img/product/product-img2.jpg"
-                                                                                alt="Product"/></a></td>
-                                    <td class="pro-title"><a href="#">{{item.product_name}} </a></td>
-                                    <td class="pro-price"><span>₹{{item.price}} </span></td>
-                                    <td class="pro-quantity">
-                                        <div class="pro-qty"><input type="text" value="{{item.qty}} "></div>
-                                    </td>
-                                    <td class="pro-subtotal"><span>₹295.00</span></td>
-                                    <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                </tr> 
+                               <tr *ngFor="let item of cartWithProduct()">
+                                        <td class="pro-thumbnail">
+                                            <img class="img-fluid"
+                                                [src]="'../../../../assets/storefront/img/product/' + item.image">
+                                        </td>
+
+                                        <td class="pro-title">{{ item.product_name }}</td>
+
+                                        <td class="pro-price">₹{{ item.price }}</td>
+
+                                        <td class="pro-quantity">
+                                            <div class="pro-qty" style="display: flex;justify-content: space-around;">
+
+                                                <button class="btn btn-sm btn-primary" (click)="cartService.decreaseQty(item)">−</button>
+
+                                                <input type="text" [value]="item.quantity" readonly>
+
+                                                <button class="btn btn-sm btn-primary" (click)="cartService.increaseQty(item)">+</button>
+
+                                            </div>
+                                            </td>
+
+                                        <td class="pro-subtotal">₹{{ item.price * item.quantity }}</td>
+
+                                        <td class="pro-remove"><i class="fa fa-trash-o" (click)="cartService.removeFromCart(item)"></i></td>
+                                        </tr>
+
                                 
                                 </tbody>
                             </table>
                         </div>
         
                         <!-- Cart Update Option -->
-                        <div class="cart-update-option d-block d-md-flex justify-content-between">
+                        <!-- <div class="cart-update-option d-block d-md-flex justify-content-between">
                             <div class="apply-coupon-wrapper">
                                 <form action="#" method="post" class=" d-block d-md-flex">
                                     <input type="text" placeholder="Enter Your Coupon Code" required />
@@ -65,7 +81,7 @@
                             <div class="cart-update mt-sm-16">
                                 <a href="#" class="sqr-btn">Update Cart</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
         
@@ -79,20 +95,28 @@
                                     <table class="table">
                                         <tr>
                                             <td>Sub Total</td>
-                                            <td>₹230</td>
+                                            <td>₹{{cartService.cartTotal()}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Shipping</td>
-                                            <td>₹70</td>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>Total</td>
-                                            <td class="total-amount">₹300</td>
-                                        </tr>
+                                        <td>Shipping</td>
+                                        <td>
+                                            ₹{{ cartService.shippingCost() }}
+                                            <span *ngIf="cartService.shippingCost() === 0" style="color: green;">
+                                                (Free)
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="total">
+                                        <td>Total</td>
+                                        <td class="total-amount">
+                                            ₹{{ cartService.grandTotal() }}
+                                        </td>
+                                    </tr>
                                     </table>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="sqr-btn d-block">Proceed To Checkout</a>
+                            <a routerLink="/checkout" class="sqr-btn d-block">Proceed To Checkout</a>
                         </div>
                     </div>
                 </div>

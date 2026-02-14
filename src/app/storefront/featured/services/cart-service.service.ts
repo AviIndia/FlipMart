@@ -1,4 +1,4 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { Injectable, signal, computed } from '@angular/core';
 import { ApiService } from '../../../core/services/api-service.service';
 
 @Injectable({
@@ -8,29 +8,44 @@ export class CartServiceService {
 
   private url = 'http://localhost:3000';
 
+  // ================================
+  // 🧠 STATE
+  // ================================
+
   private cartItemsSignal = signal<any[]>([]);
   cartItems = this.cartItemsSignal.asReadonly();
 
-  // 🛍 Count
   cartCount = computed(() =>
     this.cartItemsSignal().reduce((t, i) => t + i.quantity, 0)
   );
 
-  // 💰 Total
   cartTotal = computed(() =>
     this.cartItemsSignal().reduce((t, i) => t + i.price * i.quantity, 0)
   );
 
   constructor(private api: ApiService) {
-    this.loadGuestCart();
+    this.initializeCart();
   }
 
-  // =====================================
+  // ======================================
+  // 🚀 INITIAL LOAD
+  // ======================================
+
+  private initializeCart() {
+    const customerId = localStorage.getItem('customer_id');
+
+    if (customerId) {
+      this.loadServerCart(customerId);
+    } else {
+      this.loadGuestCart();
+    }
+  }
+
+  // ======================================
   // 🛒 MAIN ADD TO CART
-  // =====================================
+  // ======================================
 
   addToCart(product: any) {
-
     const customerId = localStorage.getItem('customer_id');
 
     if (!customerId) {
@@ -40,51 +55,47 @@ export class CartServiceService {
     }
   }
 
-  // =====================================
-  // 🟢 Guest Cart
-  // =====================================
+  // ======================================
+  // 🟢 GUEST CART
+  // ======================================
 
   private addToGuestCart(product: any) {
 
-  console.log("Product received:", product);
+    const sellingPrice =
+      product?.price?.selling_price ??
+      product?.selling_price ??
+      product?.price ??
+      0;
 
-  const sellingPrice =
-    product?.price?.selling_price ??
-    product?.selling_price ??
-    product?.price ??
-    0;
+    const existing = this.cartItemsSignal()
+      .find(i => i.product_id === product.id);
 
-  const existing = this.cartItemsSignal()
-    .find(i => i.product_id === product.id);
+    if (existing) {
 
-  if (existing) {
+      this.cartItemsSignal.update(items =>
+        items.map(i =>
+          i.product_id === product.id
+            ? { ...i, quantity: i.quantity + 1 }
+            : i
+        )
+      );
 
-    this.cartItemsSignal.update(items =>
-      items.map(i =>
-        i.product_id === product.id
-          ? { ...i, quantity: i.quantity + 1 }
-          : i
-      )
+    } else {
+
+      const newItem = {
+        product_id: product.id,
+        price: Number(sellingPrice),
+        quantity: 1
+      };
+
+      this.cartItemsSignal.update(items => [...items, newItem]);
+    }
+
+    localStorage.setItem(
+      'guest_cart',
+      JSON.stringify(this.cartItemsSignal())
     );
-
-  } else {
-
-    const newItem = {
-      product_id: product.id,
-      price: Number(sellingPrice),
-      quantity: 1
-    };
-
-    this.cartItemsSignal.update(items => [...items, newItem]);
   }
-
-  localStorage.setItem(
-    'guest_cart',
-    JSON.stringify(this.cartItemsSignal())
-  );
-
-  console.log("Saved Cart:", this.cartItemsSignal());
-}
 
   private loadGuestCart() {
     const data = localStorage.getItem('guest_cart');
@@ -93,80 +104,96 @@ export class CartServiceService {
     }
   }
 
-  // =====================================
-  // 🔵 Server Cart
-  // =====================================
+  // ======================================
+  // 🔵 SERVER CART
+  // ======================================
 
   private addToServerCart(product: any, customerId: string) {
 
-    this.api.get<any[]>(`${this.url}/carts?customer_id=${customerId}`)
-      .subscribe(carts => {
+    this.getOrCreateCart(customerId, (cartId: number) => {
 
-        if (!carts.length) {
+      this.api.get<any[]>(
+        `${this.url}/cart_items?cart_id=${cartId}&product_id=${product.id}`
+      ).subscribe(items => {
 
-          this.api.post<any>(`${this.url}/carts`, {
-            customer_id: customerId
-          }).subscribe(newCart => {
+        if (items.length) {
 
-            this.insertItem(product, newCart.id);
+          const existing = items[0];
+          const updatedQty = existing.quantity + 1;
+
+          this.api.patch(
+            `${this.url}/cart_items/${existing.id}`,
+            { quantity: updatedQty }
+          ).subscribe(() => {
+
+            this.loadServerCart(customerId);
           });
 
         } else {
 
-          this.insertItem(product, carts[0].id);
+          const newItem = {
+            cart_id: cartId,
+            product_id: product.id,
+            price: product?.price?.selling_price ?? product.price,
+            quantity: 1
+          };
+
+          this.api.post(`${this.url}/cart_items`, newItem)
+            .subscribe(() => {
+
+              this.loadServerCart(customerId);
+            });
         }
       });
-  }
-
-  private insertItem(product: any, cartId: number) {
-
-    this.api.get<any[]>(
-      `${this.url}/cart_items?cart_id=${cartId}&product_id=${product.id}`
-    ).subscribe(items => {
-
-      if (items.length) {
-
-        const existing = items[0];
-        const updatedQty = existing.quantity + 1;
-
-        this.api.patch(
-          `${this.url}/cart_items/${existing.id}`,
-          { quantity: updatedQty }
-        ).subscribe(() => {
-
-          this.cartItemsSignal.update(list =>
-            list.map(i =>
-              i.product_id === product.id
-                ? { ...i, quantity: updatedQty }
-                : i
-            )
-          );
-        });
-
-      } else {
-
-        const newItem = {
-          cart_id: cartId,
-          product_id: product.id,
-          price: product.price.selling_price,
-          quantity: 1
-        };
-
-        this.api.post<any>(
-          `${this.url}/cart_items`,
-          newItem
-        ).subscribe(created => {
-
-          this.cartItemsSignal.update(list => [...list, created]);
-        });
-      }
-
     });
   }
 
-  // =====================================
+  private getOrCreateCart(customerId: string, callback: (cartId: number) => void) {
+
+    this.api.get<any[]>(
+      `${this.url}/carts?customer_id=${customerId}`
+    ).subscribe(carts => {
+
+      if (carts.length) {
+        callback(carts[0].id);
+      } else {
+
+        this.api.post<any>(
+          `${this.url}/carts`,
+          { customer_id: customerId }
+        ).subscribe(newCart => {
+
+          callback(newCart.id);
+        });
+      }
+    });
+  }
+
+  loadServerCart(customerId: string) {
+
+    this.api.get<any[]>(
+      `${this.url}/carts?customer_id=${customerId}`
+    ).subscribe(carts => {
+
+      if (!carts.length) {
+        this.cartItemsSignal.set([]);
+        return;
+      }
+
+      const cartId = carts[0].id;
+
+      this.api.get<any[]>(
+        `${this.url}/cart_items?cart_id=${cartId}`
+      ).subscribe(items => {
+
+        this.cartItemsSignal.set(items);
+      });
+    });
+  }
+
+  // ======================================
   // ❌ REMOVE
-  // =====================================
+  // ======================================
 
   removeFromCart(item: any) {
 
@@ -185,39 +212,182 @@ export class CartServiceService {
 
     } else {
 
-      this.api.delete( `${this.url}/cart_items/${item.id}`).subscribe(() => {
+      this.api.delete(
+        `${this.url}/cart_items/${item.id}`
+      ).subscribe(() => {
 
-        this.cartItemsSignal.update(items =>
-          items.filter(i => i.product_id !== item.product_id)
-        );
+        this.loadServerCart(customerId);
       });
     }
   }
-// =====================================
-// 🔄 MERGE GUEST CART AFTER LOGIN
-// =====================================
 
-mergeGuestCartAfterLogin(customerId: string) {
+  // ======================================
+  // 🔄 MERGE GUEST CART AFTER LOGIN
+  // ======================================
 
-  const guestCart = localStorage.getItem('guest_cart');
+  mergeGuestCartAfterLogin(customerId: string) {
 
-  if (!guestCart) return;
+    const guestCart = localStorage.getItem('guest_cart');
+    if (!guestCart) return;
 
-  const items = JSON.parse(guestCart);
+    const items = JSON.parse(guestCart);
 
-  items.forEach((item: any) => {
+    this.getOrCreateCart(customerId, (cartId: number) => {
 
-    const product = {
-      id: item.product_id,
-      price: item.price
-    };
+      items.forEach((item: any) => {
 
-    this.addToServerCart(product, customerId);
-  });
+        this.api.get<any[]>(
+          `${this.url}/cart_items?cart_id=${cartId}&product_id=${item.product_id}`
+        ).subscribe(existing => {
 
-  // clear guest cart
-  localStorage.removeItem('guest_cart');
+          if (existing.length) {
+
+            const updatedQty =
+              existing[0].quantity + item.quantity;
+
+            this.api.patch(
+              `${this.url}/cart_items/${existing[0].id}`,
+              { quantity: updatedQty }
+            ).subscribe();
+
+          } else {
+
+            this.api.post(
+              `${this.url}/cart_items`,
+              {
+                cart_id: cartId,
+                product_id: item.product_id,
+                price: item.price,
+                quantity: item.quantity
+              }
+            ).subscribe();
+          }
+        });
+      });
+
+      localStorage.removeItem('guest_cart');
+      this.loadServerCart(customerId);
+    });
+  }
+
+
+  /* ---------------- Increase ------------------ */
+  increaseQty(item: any) {
+
+  const customerId = localStorage.getItem('customer_id');
+
+  if (!customerId) {
+
+    // 🟢 Guest cart
+    this.cartItemsSignal.update(items =>
+      items.map(i =>
+        i.product_id === item.product_id
+          ? { ...i, quantity: i.quantity + 1 }
+          : i
+      )
+    );
+
+    localStorage.setItem(
+      'guest_cart',
+      JSON.stringify(this.cartItemsSignal())
+    );
+
+  } else {
+
+    // 🔵 Server cart
+    const updatedQty = item.quantity + 1;
+
+    this.api.patch(
+      `${this.url}/cart_items/${item.id}`,
+      { quantity: updatedQty }
+    ).subscribe(() => {
+
+      this.loadServerCart(customerId);
+    });
+  }
+}
+/* ------------------- Decrease ------------------------- */
+decreaseQty(item: any) {
+
+  const customerId = localStorage.getItem('customer_id');
+
+  if (item.quantity <= 1) {
+    this.removeFromCart(item);
+    return;
+  }
+
+  if (!customerId) {
+
+    // 🟢 Guest cart
+    this.cartItemsSignal.update(items =>
+      items.map(i =>
+        i.product_id === item.product_id
+          ? { ...i, quantity: i.quantity - 1 }
+          : i
+      )
+    );
+
+    localStorage.setItem(
+      'guest_cart',
+      JSON.stringify(this.cartItemsSignal())
+    );
+
+  } else {
+
+    // 🔵 Server cart
+    const updatedQty = item.quantity - 1;
+
+    this.api.patch(
+      `${this.url}/cart_items/${item.id}`,
+      { quantity: updatedQty }
+    ).subscribe(() => {
+
+      this.loadServerCart(customerId);
+    });
+  }
+}
+// 🚚 Shipping Cost
+shippingCost = computed(() => {
+  return this.cartTotal() > 500 ? 0 : 70;
+});
+
+// 💰 Grand Total
+grandTotal = computed(() => {
+  return this.cartTotal() + this.shippingCost();
+});
+
+
+clearCart(customerId?: string) {
+
+  // ✅ Clear signal correctly
   this.cartItemsSignal.set([]);
+
+  // Clear guest cart
+  localStorage.removeItem('guest_cart');
+
+  if (!customerId) return;
+
+  // 🔵 Clear server cart properly
+  this.api.get<any[]>(
+    `${this.url}/carts?customer_id=${customerId}`
+  ).subscribe(carts => {
+
+    if (!carts.length) return;
+
+    const cartId = carts[0].id;
+
+    this.api.get<any[]>(
+      `${this.url}/cart_items?cart_id=${cartId}`
+    ).subscribe(items => {
+
+      items.forEach(item => {
+        this.api.delete(
+          `${this.url}/cart_items/${item.id}`
+        ).subscribe();
+      });
+
+    });
+  });
 }
 
 }
